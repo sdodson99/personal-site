@@ -18,20 +18,27 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "generate": "npx generate-react-cli component"
   },
   "dependencies": {
+    "autoprefixer": "^10.4.0",
     "eslint": "^7.29.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-react": "^7.24.0",
     "gatsby": "^4.1.0",
+    "gatsby-plugin-alias-imports": "^1.0.5",
     "gatsby-plugin-react-helmet": "^5.1.0",
     "gatsby-plugin-sass": "^5.1.0",
     "prettier": "^2.3.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
-    "sass": "^1.43.4"
+    "sass": "^1.43.4",
+    "tailwindcss": "^2.2.19"
+  },
+  "devDependencies": {
+    "prop-types": "^15.7.2"
   }
 }
