@@ -8,16 +8,27 @@
     "gatsby"
   ],
   "scripts": {
-    "develop": "gatsby develop",
+    "dev": "gatsby develop",
+    "lint:eslint": "eslint \"./**/*.js\"",
+    "lint:prettier": "prettier --check \"./**/*.js\"",
+    "lint": "npm run lint:eslint && npm run lint:prettier",
+    "fix:eslint": "eslint --fix \"./**/*.js\"",
+    "fix:prettier": "prettier --write \"./**/*.js\"",
+    "fix": "npm run fix:eslint && npm run fix:prettier",
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "eslint": "^7.29.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-react": "^7.24.0",
     "gatsby": "^4.1.0",
     "gatsby-plugin-react-helmet": "^5.1.0",
     "gatsby-plugin-sass": "^5.1.0",
+    "prettier": "^2.3.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
