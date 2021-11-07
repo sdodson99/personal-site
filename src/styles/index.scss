@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import './variables.scss';
+
 @layer utilities {
   @variants responsive {
     .content-container {
@@ -14,4 +16,26 @@
 
 body {
   font-family: 'Dosis';
+}
+
+.btn {
+  @apply block px-5 py-2 rounded transition duration-200;
+}
+
+.btn:disabled {
+  @apply opacity-60 shadow-none pointer-events-none;
+}
+
+.btn-primary {
+  background-color: $color-primary;
+
+  @apply text-white;
+}
+
+.btn-primary:hover {
+  background-color: $color-primary-dark;
+}
+
+.btn-secondary {
+  @apply bg-gray-100 text-gray-900 hover:bg-gray-300;
 }
