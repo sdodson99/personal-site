@@ -5,9 +5,11 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
 const Layout = ({ children }) => (
-  <div className={styles.Layout}>
-    <Header />
-    <main>{children}</main>
+  <div>
+    <div className={styles.page}>
+      <Header />
+      <main>{children}</main>
+    </div>
     <Footer />
   </div>
 );
