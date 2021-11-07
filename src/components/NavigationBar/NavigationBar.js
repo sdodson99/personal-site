@@ -9,32 +9,30 @@ const NavigationBar = () => (
       className={styles.navItem}
       activeClassName={styles.activeNavItem}
     >
-      Home
+      HOME
     </Link>
     <Link
       to="/career"
       className={styles.navItem}
       activeClassName={styles.activeNavItem}
     >
-      Career
+      CAREER
     </Link>
     <Link
       to="/personal"
       className={styles.navItem}
       activeClassName={styles.activeNavItem}
     >
-      Personal
+      PERSONAL
     </Link>
     <Link
       to="/contact"
       className={styles.navItem}
       activeClassName={styles.activeNavItem}
     >
-      Contact
+      CONTACT
     </Link>
   </nav>
 );
-
-NavigationBar.propTypes = {};
 
 export default NavigationBar;

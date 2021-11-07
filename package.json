@@ -22,6 +22,7 @@
     "generate": "npx generate-react-cli component"
   },
   "dependencies": {
+    "@fontsource/dosis": "^4.5.1",
     "autoprefixer": "^10.4.0",
     "classnames": "^2.3.1",
     "gatsby": "^4.1.0",
