@@ -19,7 +19,8 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "generate": "npx generate-react-cli component"
+    "generate": "npx generate-react-cli component",
+    "deploy": "firebase deploy"
   },
   "dependencies": {
     "@fontsource/dosis": "^4.5.1",
