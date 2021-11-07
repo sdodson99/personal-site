@@ -1,2 +1,7 @@
-.Footer {
+@import '../../styles/variables.scss';
+
+.footer {
+  background-color: $color-primary;
+
+  @apply py-10;
 }

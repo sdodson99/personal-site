@@ -19,6 +19,7 @@ const Header = () => {
           <StaticImage
             height={50}
             width={50}
+            placeholder="none"
             src="../../images/logo.svg"
             alt="SD Logo"
           />
