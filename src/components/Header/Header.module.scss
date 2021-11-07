@@ -1,1 +1,23 @@
-.Header {}
+@import '../../styles/variables.scss';
+
+.header {
+  @apply py-5;
+
+  .hamburger {
+    @apply sm:hidden;
+  }
+
+  .navbar {
+    &.desktop {
+      @apply hidden sm:block;
+    }
+
+    &.mobile {
+      @apply hidden mt-5;
+
+      &.open {
+        @apply block sm:hidden;
+      }
+    }
+  }
+}

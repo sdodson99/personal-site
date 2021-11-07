@@ -1,0 +1,15 @@
+@import '../../styles/variables.scss';
+
+.navigationBar {
+  @apply flex flex-col items-center bg-gray-50 py-3 sm:flex-row sm:bg-white;
+
+  .nav-item {
+    @apply pt-3 pb-1 px-5 opacity-60 hover:opacity-100 sm:pt-0 sm:p-2 sm:ml-3;
+  }
+
+  .active-nav-item {
+    border-color: $color-primary;
+
+    @apply border-b-2 opacity-100;
+  }
+}
