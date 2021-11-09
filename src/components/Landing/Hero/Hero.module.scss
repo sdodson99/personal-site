@@ -7,3 +7,13 @@
 
   @apply text-8xl mt-5;
 }
+
+.heroImage {
+  max-height: 200px;
+}
+
+@screen md {
+  .heroImage {
+    max-height: 400px;
+  }
+}

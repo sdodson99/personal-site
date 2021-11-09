@@ -1,6 +1,6 @@
-import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import * as styles from './Hero.module.scss';
+import heroImage from '../../../images/hero.png';
 
 const Hero = () => (
   <div className={styles.hero}>
@@ -21,10 +21,10 @@ const Hero = () => (
           </button>
         </div>
       </div>
-      <div className="mt-10 md:ml-8 lg:flex-1 lg:flex lg:justify-end">
-        <StaticImage
-          placeholder="none"
-          src="../../../images/hero.svg"
+      <div className="mt-10 md:ml-8 flex justify-center lg:flex-1 lg:justify-end">
+        <img
+          className={styles.heroImage}
+          src={heroImage}
           alt="Hobbies"
           height="300"
         />
