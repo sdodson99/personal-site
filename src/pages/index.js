@@ -5,6 +5,7 @@ import FeatureListing from '@/components/Landing/FeatureListing/FeatureListing';
 import suitcaseImage from '../images/suitcase.png';
 import faceImage from '../images/face.png';
 import mailImage from '../images/mail.png';
+import { Helmet } from 'react-helmet';
 
 const IndexPage = () => {
   const features = [
@@ -31,6 +32,9 @@ const IndexPage = () => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Home - Sean Dodson</title>
+      </Helmet>
       <Hero />
       <FeatureListing features={features} />
     </Layout>
