@@ -22,6 +22,7 @@ const Header = () => {
             placeholder="none"
             src="../../images/logo.svg"
             alt="SD Logo"
+            loading="eager"
           />
 
           <div className="sm:hidden">

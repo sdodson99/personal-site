@@ -10,23 +10,23 @@ import { Helmet } from 'react-helmet';
 const IndexPage = () => {
   const features = [
     {
+      title: 'Personal',
+      description: 'Who is Sean Dodson anyways?',
+      imageSrc: faceImage,
+      href: '/personal',
+    },
+    {
       title: 'Career',
       description:
         'Interested in my software development experience and projects?',
       imageSrc: suitcaseImage,
-      href: '/',
-    },
-    {
-      title: 'Personal',
-      description: 'Who is Sean Dodson anyways?',
-      imageSrc: faceImage,
-      href: '/',
+      href: '/career',
     },
     {
       title: 'Contact',
       description: 'Have a question or want to get in touch?',
       imageSrc: mailImage,
-      href: '/',
+      href: '/contact',
     },
   ];
 

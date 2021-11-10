@@ -1,6 +1,7 @@
 import React from 'react';
 import * as styles from './Hero.module.scss';
 import heroImage from '../../../images/hero.png';
+import { Link } from 'gatsby';
 
 const Hero = () => (
   <div className={styles.hero}>
@@ -13,12 +14,15 @@ const Hero = () => (
           solver, cat lover... juggler?... and much more!
         </div>
         <div className="mt-8 md:flex">
-          <button className="btn btn-primary w-full md:w-auto">
+          <Link className="btn btn-primary w-full md:w-auto" to="/personal">
             Learn More
-          </button>
-          <button className="btn btn-secondary w-full mt-3 md:w-auto md:mt-0 md:ml-5">
+          </Link>
+          <Link
+            className="btn btn-secondary w-full mt-3 md:w-auto md:mt-0 md:ml-5"
+            to="/contact"
+          >
             Contact
-          </button>
+          </Link>
         </div>
       </div>
       <div className="mt-10 md:ml-8 flex justify-center lg:flex-1 lg:justify-end">
