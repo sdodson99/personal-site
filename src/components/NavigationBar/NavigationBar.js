@@ -12,18 +12,18 @@ const NavigationBar = () => (
       HOME
     </Link>
     <Link
-      to="/career"
-      className={styles.navItem}
-      activeClassName={styles.activeNavItem}
-    >
-      CAREER
-    </Link>
-    <Link
       to="/personal"
       className={styles.navItem}
       activeClassName={styles.activeNavItem}
     >
       PERSONAL
+    </Link>
+    <Link
+      to="/career"
+      className={styles.navItem}
+      activeClassName={styles.activeNavItem}
+    >
+      CAREER
     </Link>
     <Link
       to="/contact"

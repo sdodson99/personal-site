@@ -1,0 +1,11 @@
+.feature-listing {
+  @apply mt-8 py-8 bg-gray-100;
+}
+
+.feature-cards {
+  @apply md:flex;
+}
+
+.feature-card-item {
+  @apply flex flex-1;
+}
