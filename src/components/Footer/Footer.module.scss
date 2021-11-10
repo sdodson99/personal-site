@@ -3,5 +3,15 @@
 .footer {
   background-color: $color-primary;
 
-  @apply py-10;
+  @apply py-10 text-white;
+}
+
+.nav-link {
+  @apply p-1 block sm:mr-10;
+}
+
+.social-image {
+  max-height: 35px;
+
+  @apply m-3;
 }
