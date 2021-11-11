@@ -1,8 +1,12 @@
 const path = require('path');
 
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   siteMetadata: {
-    siteUrl: 'https://www.yourdomain.tld',
+    siteUrl: 'https://www.seandodson.com',
     title: 'Personal Site',
   },
   plugins: [
@@ -26,6 +30,15 @@ module.exports = {
           require('tailwindcss'),
           require('./tailwind.config.js'),
         ],
+      },
+    },
+    {
+      resolve: `gatsby-source-spotify`,
+      options: {
+        clientId: process.env.SPOTIFY_CLIENT_ID,
+        clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
+        refreshToken: process.env.SPOTIFY_REFRESH_TOKEN,
+        timeRanges: ['short_term'],
       },
     },
   ],
