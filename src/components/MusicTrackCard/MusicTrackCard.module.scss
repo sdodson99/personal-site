@@ -1,0 +1,9 @@
+.music-track-card {
+  border-radius: 5px;
+
+  @apply p-8 border border-gray-200 text-center;
+}
+
+.album-image {
+  max-height: 100px;
+}

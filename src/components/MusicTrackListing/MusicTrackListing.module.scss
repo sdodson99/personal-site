@@ -1,0 +1,9 @@
+.music-track-listing {
+  @apply sm:flex flex-wrap;
+}
+
+.music-track-card {
+  flex-basis: 50%;
+
+  @apply mb-5 sm:pr-5;
+}
