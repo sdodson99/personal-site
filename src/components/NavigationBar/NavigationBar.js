@@ -15,6 +15,7 @@ const NavigationBar = () => (
       to="/personal"
       className={styles.navItem}
       activeClassName={styles.activeNavItem}
+      partiallyActive={true}
     >
       PERSONAL
     </Link>
@@ -22,6 +23,7 @@ const NavigationBar = () => (
       to="/career"
       className={styles.navItem}
       activeClassName={styles.activeNavItem}
+      partiallyActive={true}
     >
       CAREER
     </Link>
@@ -29,6 +31,7 @@ const NavigationBar = () => (
       to="/contact"
       className={styles.navItem}
       activeClassName={styles.activeNavItem}
+      partiallyActive={true}
     >
       CONTACT
     </Link>
