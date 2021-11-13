@@ -1,36 +1,35 @@
 import React from 'react';
 import Layout from '@/components/Layout/Layout';
 import { Helmet } from 'react-helmet';
-import { graphql } from 'gatsby';
-import PropTypes from 'prop-types';
+import { graphql, useStaticQuery } from 'gatsby';
 import PageHeading from '@/components/PageHeading/PageHeading';
 import MusicTrackListing from '@/components/MusicTrackListing/MusicTrackListing';
 
-export const query = graphql`
-  {
-    allSpotifyTopTrack(limit: 10, sort: { fields: order }) {
-      nodes {
-        name
-        artistString
-        album {
+const MusicPage = () => {
+  const tracksData = useStaticQuery(graphql`
+    {
+      allSpotifyTopTrack(limit: 10, sort: { fields: order }) {
+        nodes {
           name
-        }
-        image {
-          localFile {
-            childImageSharp {
-              fluid {
-                ...GatsbyImageSharpFluid_withWebp
+          artistString
+          album {
+            name
+          }
+          image {
+            localFile {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
               }
             }
           }
         }
       }
     }
-  }
-`;
+  `);
 
-const MusicPage = ({ data }) => {
-  const tracks = data.allSpotifyTopTrack.nodes.map((t) => ({
+  const tracks = tracksData.allSpotifyTopTrack.nodes.map((t) => ({
     name: t.name,
     artistName: t.artistString,
     albumName: t.album.name,
@@ -55,10 +54,6 @@ const MusicPage = ({ data }) => {
       </div>
     </Layout>
   );
-};
-
-MusicPage.propTypes = {
-  data: PropTypes.object,
 };
 
 export default MusicPage;
