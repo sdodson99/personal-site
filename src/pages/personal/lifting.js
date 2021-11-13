@@ -3,6 +3,7 @@ import Layout from '@/components/Layout/Layout';
 import { Helmet } from 'react-helmet';
 import PageHeading from '@/components/PageHeading/PageHeading';
 import { graphql, useStaticQuery } from 'gatsby';
+import WorkoutListing from '@/components/WorkoutListing/WorkoutListing';
 
 const LiftingPage = () => {
   const liftingData = useStaticQuery(graphql`
@@ -39,14 +40,17 @@ const LiftingPage = () => {
       const workoutExercises = workoutMap[workoutDateString].exercises;
 
       if (!workoutExercises[exerciseName]) {
-        workoutExercises[exerciseName] = [];
+        workoutExercises[exerciseName] = {
+          name: exerciseName,
+          sets: [],
+        };
       }
 
-      const set = Number.parseInt(setString);
-      const reps = Number.parseInt(repsString);
-      const weight = Number.parseInt(weightString);
+      const set = Math.round(Number.parseFloat(setString));
+      const reps = Math.round(Number.parseFloat(repsString));
+      const weight = Math.round(Number.parseFloat(weightString));
 
-      workoutExercises[exerciseName].push({
+      workoutExercises[exerciseName].sets.push({
         set,
         reps,
         weight,
@@ -58,6 +62,9 @@ const LiftingPage = () => {
   );
 
   const workouts = Object.values(workoutsMap);
+  workouts.forEach((w) => {
+    w.exercises = Object.values(w.exercises);
+  });
   const recentWorkouts = workouts.sort((a, b) => b.date - a.date).slice(0, 10);
 
   return (
@@ -72,7 +79,9 @@ const LiftingPage = () => {
             'Check out my recent workouts. This content is pulled from my Strong account. I still need to automate this to update automatically!'
           }
         </p>
-        <pre>{JSON.stringify(recentWorkouts, null, 4)}</pre>
+        <div className="mt-8">
+          <WorkoutListing workouts={recentWorkouts} />
+        </div>
       </div>
     </Layout>
   );

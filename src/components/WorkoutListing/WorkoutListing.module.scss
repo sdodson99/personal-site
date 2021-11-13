@@ -1,0 +1,9 @@
+.workout-listing {
+  @apply sm:flex flex-wrap;
+}
+
+.workout-card {
+  flex-basis: 50%;
+
+  @apply mb-5 sm:pr-5;
+}
