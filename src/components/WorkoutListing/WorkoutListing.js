@@ -5,7 +5,7 @@ import WorkoutCard from '../WorkoutCard/WorkoutCard';
 
 const WorkoutListing = ({ workouts }) => {
   const workoutCards = workouts.map((w) => (
-    <div key={w.date} className={styles.workoutCard}>
+    <div key={w.date.toString()} className={styles.workoutCard}>
       <WorkoutCard {...w} />
     </div>
   ));
@@ -16,7 +16,7 @@ const WorkoutListing = ({ workouts }) => {
 WorkoutListing.propTypes = {
   workouts: PropTypes.arrayOf(
     PropTypes.shape({
-      date: PropTypes.number.isRequired,
+      date: PropTypes.object.isRequired,
       exercises: PropTypes.arrayOf(
         PropTypes.shape({
           name: PropTypes.string,

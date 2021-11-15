@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import * as styles from './WorkoutCard.module.scss';
 
 const WorkoutCard = ({ date, exercises }) => {
-  const dateDisplay = new Date(date).toLocaleDateString();
+  const dateDisplay = date.toFormat('MM/dd/yyyy');
 
   return (
     <div className={styles.workoutCard}>
@@ -38,7 +38,7 @@ const WorkoutCard = ({ date, exercises }) => {
 };
 
 WorkoutCard.propTypes = {
-  date: PropTypes.number.isRequired,
+  date: PropTypes.object.isRequired,
   exercises: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,

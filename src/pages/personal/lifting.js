@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet';
 import PageHeading from '@/components/PageHeading/PageHeading';
 import { graphql, useStaticQuery } from 'gatsby';
 import WorkoutListing from '@/components/WorkoutListing/WorkoutListing';
+import { DateTime } from 'luxon';
 
 const LiftingPage = () => {
   const liftingData = useStaticQuery(graphql`
@@ -32,7 +33,7 @@ const LiftingPage = () => {
 
       if (!workoutMap[workoutDateString]) {
         workoutMap[workoutDateString] = {
-          date: Date.parse(workoutDateString),
+          date: DateTime.fromFormat(workoutDateString, 'yyyy-MM-dd HH:mm:ss'),
           exercises: {},
         };
       }
