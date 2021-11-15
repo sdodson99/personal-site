@@ -1,2 +1,5 @@
 .workout-card {
+  border-radius: 5px;
+
+  @apply p-8 border border-gray-200 flex-1;
 }
