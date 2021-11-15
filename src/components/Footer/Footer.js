@@ -23,10 +23,10 @@ const Footer = () => (
             <Link className={styles.navLink} to="/personal">
               Personal
             </Link>
-            <Link className={styles.navLink} to="/lifting">
+            <Link className={styles.navLink} to="/personal/lifting">
               Lifting
             </Link>
-            <Link className={styles.navLink} to="/music">
+            <Link className={styles.navLink} to="/personal/music">
               Music
             </Link>
           </div>
