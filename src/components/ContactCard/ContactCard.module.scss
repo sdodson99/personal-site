@@ -1,0 +1,10 @@
+.contact-card {
+  border-radius: 5px;
+
+  @apply p-8 border border-gray-200 text-center flex flex-col md:flex-row flex-1;
+}
+
+.contact-image {
+  max-width: 100px;
+  max-height: 100px;
+}
