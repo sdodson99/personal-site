@@ -10,10 +10,10 @@ const WorkoutCard = ({ date, exercises }) => {
       <h2 className="text-2xl">{dateDisplay} Workout</h2>
       <div className="mt-5">
         {exercises.map((e) => (
-          <div key={e.name} className="pb-3 flex">
+          <div key={e.name} className="pb-3 sm:flex">
             <h3 className="flex-1 text-lg">{e.name}</h3>
-            <table className="table-auto flex-1">
-              <thead>
+            <table className="table-auto flex-1 mx-auto">
+              <thead className={styles.exercisesHeading}>
                 <tr>
                   <th>Set</th>
                   <th>Reps</th>

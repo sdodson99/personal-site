@@ -1,5 +1,11 @@
 .workout-card {
   border-radius: 5px;
 
-  @apply p-8 border border-gray-200 flex-1;
+  @apply p-8 border border-gray-200 flex-1 text-center sm:text-left;
+}
+
+.exercises-heading {
+  th {
+    @apply px-2 text-center;
+  }
 }
