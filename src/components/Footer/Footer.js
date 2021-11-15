@@ -12,23 +12,37 @@ const GITHUB_URL = 'https://github.com/sdodson99';
 const Footer = () => (
   <div className={styles.footer}>
     <div className="content-container">
-      <div className="flex flex-col items-center text-center sm:flex-row sm:justify-between sm:items-start">
+      <div className="flex flex-col items-center text-center sm:text-left sm:flex-row sm:justify-between sm:items-start">
         <div className="sm:flex">
-          <Link className={styles.navLink} to="/">
-            Home
-          </Link>
-          <Link className={styles.navLink} to="/personal">
-            Personal
-          </Link>
-          <Link className={styles.navLink} to="/career">
-            Career
-          </Link>
-          <Link className={styles.navLink} to="/contact">
-            Contact
-          </Link>
+          <div className={styles.navLinkGroup}>
+            <Link className={styles.navLink} to="/">
+              Home
+            </Link>
+          </div>
+          <div className={styles.navLinkGroup}>
+            <Link className={styles.navLink} to="/personal">
+              Personal
+            </Link>
+            <Link className={styles.navLink} to="/lifting">
+              Lifting
+            </Link>
+            <Link className={styles.navLink} to="/music">
+              Music
+            </Link>
+          </div>
+          <div className={styles.navLinkGroup}>
+            <Link className={styles.navLink} to="/career">
+              Career
+            </Link>
+          </div>
+          <div className={styles.navLinkGroup}>
+            <Link className={styles.navLink} to="/contact">
+              Contact
+            </Link>
+          </div>
         </div>
         <div className="mt-8 sm:mt-0">
-          <div>Follow My Socials</div>
+          <div className="text-center">Follow My Socials</div>
           <div className="flex">
             <a href={LINKEDIN_URL} target="_blank" rel="noreferrer">
               <img

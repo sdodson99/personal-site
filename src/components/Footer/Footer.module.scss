@@ -6,6 +6,10 @@
   @apply py-10 text-white;
 }
 
+.nav-link-group {
+  @apply mb-5 sm:mb-0;
+}
+
 .nav-link {
   @apply p-1 block sm:mr-10;
 }
