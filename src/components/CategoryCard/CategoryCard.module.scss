@@ -1,0 +1,9 @@
+.category-card {
+  @apply flex flex-col sm:flex-row sm:justify-between sm:items-center;
+}
+
+.category-image {
+  max-height: 150px;
+
+  @apply mt-5 sm:mt-0 sm:ml-3;
+}
