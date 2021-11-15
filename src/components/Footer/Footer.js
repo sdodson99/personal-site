@@ -34,6 +34,15 @@ const Footer = () => (
             <Link className={styles.navLink} to="/career">
               Career
             </Link>
+            <Link className={styles.navLink} to="/career/experience">
+              Experience
+            </Link>
+            <Link className={styles.navLink} to="/career/projects">
+              Projects
+            </Link>
+            <Link className={styles.navLink} to="/career/youtube">
+              YouTube
+            </Link>
           </div>
           <div className={styles.navLinkGroup}>
             <Link className={styles.navLink} to="/contact">
