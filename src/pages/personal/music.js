@@ -8,7 +8,7 @@ import MusicTrackListing from '@/components/MusicTrackListing/MusicTrackListing'
 const MusicPage = () => {
   const tracksData = useStaticQuery(graphql`
     {
-      allSpotifyTopTrack(limit: 10, sort: { fields: order }) {
+      allSpotifyTopTrack(sort: { fields: order }) {
         nodes {
           name
           artistString
