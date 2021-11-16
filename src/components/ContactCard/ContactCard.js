@@ -4,9 +4,14 @@ import * as styles from './ContactCard.module.scss';
 
 const ContactCard = ({ title, description, imageSrc, href, linkChildren }) => (
   <div className={styles.contactCard}>
-    <div className="text-center md:text-left md:flex md:flex-col md:items-start">
-      <h2 className="text-2xl">{title}</h2>
-      <p className="mt-5 font-thin">{description}</p>
+    <div className="flex justify-center items-center md:ml-3 md:order-2">
+      <img className={styles.contactImage} src={imageSrc} alt={title} />
+    </div>
+    <div className="mt-5 flex-1 text-center md:text-left sm:flex sm:flex-col sm:justify-between md:items-start md:mt-0">
+      <div>
+        <h2 className="text-2xl">{title}</h2>
+        <p className="mt-5 font-thin">{description}</p>
+      </div>
       <a
         className="mt-5 btn btn-primary"
         href={href}
@@ -15,9 +20,6 @@ const ContactCard = ({ title, description, imageSrc, href, linkChildren }) => (
       >
         {linkChildren}
       </a>
-    </div>
-    <div className="mt-5 md:mt-0 md:ml-3 flex justify-center items-center">
-      <img className={styles.contactImage} src={imageSrc} alt={title} />
     </div>
   </div>
 );
