@@ -1,5 +1,5 @@
 .experience-listing-item {
-  @apply flex flex-col justify-center;
+  @apply flex flex-col justify-center md:flex-row;
 }
 
 .company-logo {

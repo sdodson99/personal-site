@@ -27,12 +27,12 @@ const ExperienceListingItem = ({
           <img src={imageSrc} alt={name} />
         </a>
       </div>
-      <div className="mt-5">
-        <h2 className="text-2xl text-center">{name}</h2>
-        <div className="mt-3 text-center font-thin">
+      <div className="mt-5 md:mt-0 md:ml-8">
+        <h2 className="text-2xl text-center md:text-left">{name}</h2>
+        <div className="mt-3 text-center font-thin md:text-left">
           <div>
-            <span className="mx-2">{position}</span>
-            <span className="mx-2">{location}</span>
+            <span className="mx-2 md:mx-0 md:mr-5">{position}</span>
+            <span className="mx-2 md:mx-0 md:mr-5">{location}</span>
           </div>
           <div className="mt-1">
             <span>{startDateDisplay}</span>
