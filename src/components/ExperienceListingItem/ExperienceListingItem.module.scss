@@ -1,0 +1,12 @@
+.experience-listing-item {
+  @apply flex flex-col justify-center;
+}
+
+.company-logo {
+  @apply flex justify-center;
+
+  img {
+    max-height: 100px;
+    max-width: 100px;
+  }
+}

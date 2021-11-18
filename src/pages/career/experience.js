@@ -7,6 +7,7 @@ import lawIqImage from '../../images/lawiq.png';
 import triceratImage from '../../images/tricerat.jpeg';
 import textronImage from '../../images/textron.jpeg';
 import paypalImage from '../../images/paypal.jpeg';
+import ExperienceListing from '@/components/ExperienceListing/ExperienceListing';
 
 const ExperiencePage = () => {
   const experiences = [
@@ -65,7 +66,7 @@ const ExperiencePage = () => {
     {
       name: 'PayPal',
       description:
-        'PayPal is globally reimagining the financial and online payments industry. I help build full stack applications using React and GraphQL to acquire PayPal Credit users.',
+        'PayPal is globally re-imagining the financial and online payments industry. I help build full stack applications using React and GraphQL to acquire PayPal Credit users.',
       location: 'Timonium, MD',
       websiteUrl: 'https://www.paypal.com/',
       imageSrc: paypalImage,
@@ -76,6 +77,8 @@ const ExperiencePage = () => {
     },
   ];
 
+  experiences.sort((a, b) => b.startDate - a.startDate);
+
   return (
     <Layout>
       <Helmet>
@@ -83,7 +86,9 @@ const ExperiencePage = () => {
       </Helmet>
       <div className="content-container page-container">
         <PageHeading>Experience</PageHeading>
-        <div className="mt-14">Work in progress...</div>
+        <div className="mt-14">
+          <ExperienceListing experiences={experiences} />
+        </div>
       </div>
     </Layout>
   );
