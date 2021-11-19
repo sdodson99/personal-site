@@ -1,12 +1,11 @@
-.experience-listing-item {
+.project-listing-item {
   @apply flex flex-col justify-center md:flex-row md:justify-start;
 }
 
-.company-logo {
-  @apply flex justify-center;
+.project-logo {
+  @apply flex justify-center items-start;
 
   img {
-    max-height: 100px;
     max-width: 100px;
   }
 }

@@ -9,6 +9,7 @@ import showntellImage from '../../images/showntell.png';
 import sucovidImage from '../../images/sucovid.png';
 import typescriptImage from '../../images/typescript.png';
 import npmImage from '../../images/npm.png';
+import ProjectListing from '@/components/ProjectListing/ProjectListing';
 
 const ProjectsPage = () => {
   const projects = [
@@ -24,7 +25,7 @@ const ProjectsPage = () => {
         'Submit COVID symptoms by answering CLI prompts',
         'Securely save Stevenson University login credentials for future symptom submissions',
       ],
-      technology: [
+      technologies: [
         {
           name: 'TypeScript',
           imageSrc: typescriptImage,
@@ -60,7 +61,7 @@ const ProjectsPage = () => {
         "Explore and follow other user's profiles",
         "Like and comment on other user's image posts",
       ],
-      technology: [
+      technologies: [
         {
           name: 'ASP.NET Core',
           imageSrc: dotNetImage,
@@ -100,7 +101,9 @@ const ProjectsPage = () => {
       </Helmet>
       <div className="content-container page-container">
         <PageHeading>Projects</PageHeading>
-        <div className="mt-14">Work in progress...</div>
+        <div className="mt-14">
+          <ProjectListing projects={projects} />
+        </div>
       </div>
     </Layout>
   );
