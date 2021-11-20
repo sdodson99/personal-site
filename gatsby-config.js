@@ -50,5 +50,12 @@ module.exports = {
       },
     },
     `gatsby-transformer-csv`,
+    {
+      resolve: `gatsby-source-youtube-v3`,
+      options: {
+        channelId: ['UC7X9mQ_XtTYWzr9Tf_NYcIg'],
+        apiKey: process.env.YOUTUBE_API_KEY,
+      },
+    },
   ],
 };
