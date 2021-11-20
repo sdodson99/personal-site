@@ -1,0 +1,9 @@
+.youtube-video-listing {
+  @apply sm:flex flex-wrap;
+}
+
+.youtube-video-card {
+  flex-basis: 50%;
+
+  @apply mb-16 sm:pr-5 flex flex-col;
+}
