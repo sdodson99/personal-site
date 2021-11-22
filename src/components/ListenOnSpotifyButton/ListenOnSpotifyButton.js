@@ -14,6 +14,8 @@ const ListenOnSpotifyButton = ({ trackUrl }) => (
     <StaticImage
       className="ml-1"
       src="../../images/spotify-text.png"
+      placeholder="none"
+      alt="Spotify"
       height={20}
     />
   </a>

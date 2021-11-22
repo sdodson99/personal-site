@@ -17,6 +17,8 @@ const WatchOnYouTubeButton = ({ videoId }) => {
       <StaticImage
         className="ml-1"
         src="../../images/youtube-text.png"
+        placeholder="none"
+        alt="YouTube"
         height={20}
       />
     </a>
