@@ -1,17 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as styles from './MusicTrackCard.module.scss';
+import Card from '../Card/Card';
 
 const MusicTrackCard = ({ name, artistName, albumName, imageSrc }) => (
-  <div className={styles.musicTrackCard}>
-    <div className="flex justify-center">
-      <img className={styles.albumImage} src={imageSrc} alt={albumName} />
+  <Card>
+    <div className={styles.musicTrackCard}>
+      <div className="flex justify-center">
+        <img className={styles.albumImage} src={imageSrc} alt={albumName} />
+      </div>
+      <div className="mt-5">
+        <div className="font-bold">{name}</div>
+        <div className="mt-2 italic">{artistName}</div>
+      </div>
     </div>
-    <div className="mt-5">
-      <div className="font-bold">{name}</div>
-      <div className="mt-2 italic">{artistName}</div>
-    </div>
-  </div>
+  </Card>
 );
 
 MusicTrackCard.propTypes = {

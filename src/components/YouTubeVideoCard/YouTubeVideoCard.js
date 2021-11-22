@@ -1,27 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as styles from './YouTubeVideoCard.module.scss';
+import Card from '../Card/Card';
 
 const YouTubeVideoCard = ({ id, title, thumbnailSrc }) => {
   const videoUrl = `https://www.youtube.com/watch?v=${id}`;
 
   return (
-    <div className={styles.youtubeVideoCard}>
-      <div>
-        <div className={styles.thumbnail}>
-          <img src={thumbnailSrc} alt={title} />
+    <Card>
+      <div className={styles.youtubeVideoCard}>
+        <div>
+          <div className={styles.thumbnail}>
+            <img src={thumbnailSrc} alt={title} />
+          </div>
+          <h2 className="text-2xl mt-5">{title}</h2>
         </div>
-        <h2 className="text-2xl mt-5">{title}</h2>
+        <a
+          className="btn btn-primary mt-5"
+          href={videoUrl}
+          target="_blank"
+          rel="noreferrer"
+        >
+          Watch
+        </a>
       </div>
-      <a
-        className="btn btn-primary mt-5"
-        href={videoUrl}
-        target="_blank"
-        rel="noreferrer"
-      >
-        Watch
-      </a>
-    </div>
+    </Card>
   );
 };
 
