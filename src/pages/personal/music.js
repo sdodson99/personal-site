@@ -15,6 +15,9 @@ const MusicPage = () => {
           album {
             name
           }
+          external_urls {
+            spotify
+          }
           image {
             localFile {
               childImageSharp {
@@ -34,6 +37,7 @@ const MusicPage = () => {
     artistName: t.artistString,
     albumName: t.album.name,
     imageSrc: t.image.localFile.childImageSharp.fluid.src,
+    url: t.external_urls.spotify,
   }));
 
   return (

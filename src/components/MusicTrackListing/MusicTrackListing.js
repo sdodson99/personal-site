@@ -20,6 +20,7 @@ MusicTrackListing.propTypes = {
       artistName: PropTypes.string.isRequired,
       albumName: PropTypes.string.isRequired,
       imageSrc: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
     })
   ),
 };
