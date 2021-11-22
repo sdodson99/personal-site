@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as styles from './CategoryCard.module.scss';
+import * as styles from './CategoryListingItem.module.scss';
 import { Link } from 'gatsby';
 
-const CategoryCard = ({ title, description, imageSrc, to }) => (
-  <div className={styles.categoryCard}>
+const CategoryListingItem = ({ title, description, imageSrc, to }) => (
+  <div className={styles.categoryListingItem}>
     <div className="flex order-1 justify-center sm:order-2">
       <img className={styles.categoryImage} src={imageSrc} alt={title} />
     </div>
@@ -18,13 +18,13 @@ const CategoryCard = ({ title, description, imageSrc, to }) => (
   </div>
 );
 
-CategoryCard.propTypes = {
+CategoryListingItem.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   imageSrc: PropTypes.string.isRequired,
   to: PropTypes.string.isRequired,
 };
 
-CategoryCard.defaultProps = {};
+CategoryListingItem.defaultProps = {};
 
-export default CategoryCard;
+export default CategoryListingItem;

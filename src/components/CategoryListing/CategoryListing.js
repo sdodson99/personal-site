@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as styles from './CategoryListing.module.scss';
-import CategoryCard from '../CategoryCard/CategoryCard';
+import CategoryListingItem from '../CategoryListingItem/CategoryListingItem';
 
 const CategoryListing = ({ categories }) => {
-  const categoryCards = categories.map((c) => (
+  const categoryListingItems = categories.map((c) => (
     <div key={c.title} className="mb-12">
-      <CategoryCard {...c} />
+      <CategoryListingItem {...c} />
     </div>
   ));
 
-  return <div className={styles.categoryListing}>{categoryCards}</div>;
+  return <div className={styles.categoryListing}>{categoryListingItems}</div>;
 };
 
 CategoryListing.propTypes = {
