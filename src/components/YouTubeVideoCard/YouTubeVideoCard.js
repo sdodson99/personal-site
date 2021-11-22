@@ -2,10 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as styles from './YouTubeVideoCard.module.scss';
 import Card from '../Card/Card';
+import WatchOnYouTubeButton from '../WatchOnYouTubeButton/WatchOnYouTubeButton';
 
 const YouTubeVideoCard = ({ id, title, thumbnailSrc }) => {
-  const videoUrl = `https://www.youtube.com/watch?v=${id}`;
-
   return (
     <Card>
       <div className={styles.youtubeVideoCard}>
@@ -15,14 +14,9 @@ const YouTubeVideoCard = ({ id, title, thumbnailSrc }) => {
           </div>
           <h2 className="text-2xl mt-5">{title}</h2>
         </div>
-        <a
-          className="btn btn-primary mt-5"
-          href={videoUrl}
-          target="_blank"
-          rel="noreferrer"
-        >
-          Watch
-        </a>
+        <div className="mt-5">
+          <WatchOnYouTubeButton videoId={id} />
+        </div>
       </div>
     </Card>
   );
