@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - 'master'
+  schedule:
+    # Every day at 7:10 AM
+    - cron: '10 7 * * *'
 
 env:
   SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
