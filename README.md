@@ -1,54 +1,68 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby minimal starter
-</h1>
+# Personal Site
 
-## 🚀 Quick start
+A website about me, powered by Gatsby.
 
-1.  **Create a Gatsby site.**
+Website: https://www.seandodson.com/
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+# Table of Contents
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+- [Description](#description)
+- [Technology](#technology)
+- [How to Run Locally](#how-to-run-locally)
+  - [Prerequisites](#prerequisites)
+  - [Steps](#steps)
+- [Contributing](#contributing)
 
-2.  **Start developing.**
+# Description
 
-    Navigate into your new site’s directory and start it up.
+A personal website featuring information about my hobbies, career, and other passions.
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+Website: https://www.seandodson.com/
 
-3.  **Open the code and start customizing!**
+# Technology
 
-    Your site is now running at http://localhost:8000!
+- React
+- Gatsby
+- Tailwind
+- SCSS
+- Firebase (Hosting)
 
-    Edit `src/pages/index.js` to see your site update in real-time!
+# How to Run Locally
 
-4.  **Learn more**
+Follow the following steps to run my personal site locally after cloning. Just don't steal my identity please.
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+## Prerequisites
 
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+- [Spotify API Credentials](https://github.com/leolabs/gatsby-source-spotify#configuration)
+- [YouTube API Key](https://developers.google.com/youtube/v3/getting-started)
 
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+## Steps
 
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+1. Install packages.
 
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+```
+npm install
+```
 
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+2. Create a file named '.env.development' in the root of the project with the following environment variables.
 
-## 🚀 Quick start (Gatsby Cloud)
+```
+SPOTIFY_CLIENT_ID=<VALUE>
+SPOTIFY_CLIENT_SECRET=<VALUE>
+SPOTIFY_REFRESH_TOKEN=<VALUE>
+YOUTUBE_API_KEY=<VALUE>
+```
 
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
+_See [prerequisites](#prerequisites) for information on getting these values._
 
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal)
+3. Start the application.
+
+```
+npm run dev
+```
+
+4. View http://localhost:8000/ in your favorite browser.
+
+# Contributing
+
+Please create a new issue or open a pull request if you think my website or personal life is lame :satisfied:.
