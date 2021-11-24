@@ -17,7 +17,7 @@ CategoryListing.propTypes = {
   categories: PropTypes.arrayOf({
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    imageSrc: PropTypes.string.isRequired,
+    imageData: PropTypes.object.isRequired,
     to: PropTypes.string.isRequired,
   }),
 };

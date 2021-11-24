@@ -3,23 +3,43 @@ import Layout from '@/components/Layout/Layout';
 import { Helmet } from 'react-helmet';
 import PageHeading from '@/components/PageHeading/PageHeading';
 import CategoryListing from '@/components/CategoryListing/CategoryListing';
-import weightPlateImage from '../../images/weight-plate.png';
-import guitarImage from '../../images/guitar.png';
+import { graphql, useStaticQuery } from 'gatsby';
 
 const PersonalPage = () => {
+  const images = useStaticQuery(graphql`
+    {
+      weightPlate: file(
+        sourceInstanceName: { eq: "images" }
+        name: { eq: "weight-plate" }
+      ) {
+        childImageSharp {
+          gatsbyImageData(placeholder: NONE, height: 100)
+        }
+      }
+      guitar: file(
+        sourceInstanceName: { eq: "images" }
+        name: { eq: "guitar" }
+      ) {
+        childImageSharp {
+          gatsbyImageData(placeholder: NONE, height: 100)
+        }
+      }
+    }
+  `);
+
   const categories = [
     {
       title: 'Lifting',
       description:
         'Lifting weights and exercising keeps me sane. Check out some of my recent workouts.',
-      imageSrc: weightPlateImage,
+      imageData: images.weightPlate,
       to: 'lifting',
     },
     {
       title: 'Music',
       description:
         "I'm almost always listening to music. Check out what I've been listening to recently.",
-      imageSrc: guitarImage,
+      imageData: images.guitar,
       to: 'music',
     },
   ];
