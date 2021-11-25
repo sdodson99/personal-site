@@ -7,6 +7,7 @@ const ProjectListingItem = ({
   imageSrc,
   description,
   repositoryUrl,
+  projectUrl,
   isArchived,
   features,
   technologies,
@@ -32,21 +33,36 @@ const ProjectListingItem = ({
       <div className="mt-5 md:mt-0 md:ml-8">
         <h2 className="text-2xl text-center md:text-left">{name}</h2>
         <div className="mt-3 text-center font-thin md:text-left">
-          {getSourceCodeLabel()}{' '}
-          <a
-            className="text-blue-500 hover:underline hover:text-blue-800"
-            href={repositoryUrl}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {repositoryUrl}
-          </a>
+          <div>
+            {getSourceCodeLabel()}{' '}
+            <a
+              className="link"
+              href={repositoryUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {repositoryUrl}
+            </a>
+          </div>
+          {projectUrl && (
+            <div className="mt-1">
+              Live Project:{' '}
+              <a
+                className="link"
+                href={projectUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {projectUrl}
+              </a>
+            </div>
+          )}
         </div>
         <p className="mt-5">{description}</p>
         {hasFeatures && (
           <div className="mt-3">
             <div className="italic">What can the user do?</div>
-            <ul className="list-disc list-inside">{featuresDisplay}</ul>
+            <ul className="list-disc list-outside ml-5">{featuresDisplay}</ul>
           </div>
         )}
         {/* {hasTechnologies && (
@@ -63,7 +79,8 @@ ProjectListingItem.propTypes = {
   name: PropTypes.string.isRequired,
   imageSrc: PropTypes.string.isRequired,
   repositoryUrl: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  projectUrl: PropTypes.string,
+  description: PropTypes.node.isRequired,
   isArchived: PropTypes.bool,
   features: PropTypes.arrayOf(PropTypes.string),
   technologies: PropTypes.arrayOf(

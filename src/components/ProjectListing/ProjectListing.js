@@ -19,7 +19,8 @@ ProjectListing.propTypes = {
       name: PropTypes.string.isRequired,
       imageSrc: PropTypes.string.isRequired,
       repositoryUrl: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
+      projectUrl: PropTypes.string,
+      description: PropTypes.node.isRequired,
       isArchived: PropTypes.bool,
       features: PropTypes.arrayOf(PropTypes.string),
       technologies: PropTypes.arrayOf(

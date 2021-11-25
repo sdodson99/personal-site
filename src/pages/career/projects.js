@@ -7,12 +7,62 @@ import azureImage from '../../images/azure.png';
 import vueImage from '../../images/vuejs.png';
 import showntellImage from '../../images/showntell.png';
 import sucovidImage from '../../images/sucovid.png';
+import fantasyFootballImage from '../../images/fantasy-football.png';
 import typescriptImage from '../../images/typescript.png';
+import resourceRankImage from '../../images/resource-rank.jpeg';
 import npmImage from '../../images/npm.png';
 import ProjectListing from '@/components/ProjectListing/ProjectListing';
 
 const ProjectsPage = () => {
   const projects = [
+    {
+      name: 'Fantasy Football Transaction Analyzer',
+      imageSrc: fantasyFootballImage,
+      repositoryUrl:
+        'https://github.com/sdodson99/fantasy-football-transaction-analyzer',
+      description: (
+        <span>
+          Analyzes{' '}
+          <a
+            className="link"
+            href="https://sleeper.app/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Sleeper
+          </a>{' '}
+          fantasy football league transactions using{' '}
+          <a
+            className="link"
+            href="https://keeptradecut.com/trade-calculator"
+            target="_blank"
+            rel="noreferrer"
+          >
+            KeepTradeCut
+          </a>{' '}
+          to see who won or lost a trade. The analysis link is automatically
+          posted to the Sleeper league chat.
+        </span>
+      ),
+      features: [
+        'Receive chat nofications for transaction analysis',
+        'Use automated analysis to decide who won the trade, or if a trade was driven by collusion',
+      ],
+    },
+    {
+      name: 'Resource Rank',
+      imageSrc: resourceRankImage,
+      repositoryUrl: 'https://github.com/sdodson99/resource-rank',
+      projectUrl: 'https://resource-rank.vercel.app/',
+      description:
+        'Resouce Rank is a platform to rank resources for various educational topics. Rather than sifting through the web for the best courses and information, use Resource Rank to instantly find the best courses and find new topics to learn about!',
+      features: [
+        'Instantly find the best resources for learning about a specific topic',
+        'Explore topics to find your next learning journey',
+        'Rate resources based on helpfulness for learning a topic',
+        'Add new topics and resources that are useful',
+      ],
+    },
     {
       name: 'SU COVID Symptom Tracker',
       imageSrc: sucovidImage,
