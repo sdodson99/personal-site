@@ -43,3 +43,7 @@ body {
 .btn-secondary {
   @apply bg-gray-100 text-gray-900 hover:bg-gray-300;
 }
+
+.link {
+  @apply text-blue-500 hover:underline hover:text-blue-800;
+}

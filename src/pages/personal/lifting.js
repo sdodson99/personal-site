@@ -76,9 +76,16 @@ const LiftingPage = () => {
       <div className="content-container page-container">
         <PageHeading>Weight Lifting</PageHeading>
         <p className="mt-8">
-          {
-            'Check out my recent workouts. This content is pulled from my Strong account. I still need to automate this to update automatically!'
-          }
+          Check out my recent workouts. This content is pulled from my{' '}
+          <a
+            className="link"
+            href="https://www.strong.app/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Strong
+          </a>{' '}
+          account. I still need to automate this to update automatically!
         </p>
         <div className="mt-8">
           <WorkoutListing workouts={recentWorkouts} />
