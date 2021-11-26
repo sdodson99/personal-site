@@ -35,6 +35,7 @@ Follow the following steps to run my personal site locally after cloning. Just d
 
 - [Spotify API Credentials](https://github.com/leolabs/gatsby-source-spotify#configuration)
 - [YouTube API Key](https://developers.google.com/youtube/v3/getting-started)
+- [Google Drive Credentials for a Folder w/ 'Strong' Data](https://github.com/richseviora/gatsby-plugin-drive#usage)
 
 ## Steps
 
@@ -51,6 +52,9 @@ SPOTIFY_CLIENT_ID=<VALUE>
 SPOTIFY_CLIENT_SECRET=<VALUE>
 SPOTIFY_REFRESH_TOKEN=<VALUE>
 YOUTUBE_API_KEY=<VALUE>
+GOOGLE_DRIVE_FOLDER_ID=<VALUE>
+GOOGLE_PRIVATE_KEY=<VALUE>
+GOOGLE_CLIENT_EMAIL=<VALUE>
 ```
 
 _See [prerequisites](#prerequisites) for information on getting these values._

@@ -4,3 +4,5 @@ node_modules/
 public
 todo.txt
 .env.*
+.DS_Store
+remote-data/

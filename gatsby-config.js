@@ -45,7 +45,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `data`,
-        path: `${__dirname}/src/data/`,
+        path: `${__dirname}/remote-data`,
         ignore: [`**/\.*`], // ignore files starting with a dot
       },
     },
@@ -63,6 +63,17 @@ module.exports = {
       options: {
         channelId: ['UC7X9mQ_XtTYWzr9Tf_NYcIg'],
         apiKey: process.env.YOUTUBE_API_KEY,
+      },
+    },
+    {
+      resolve: '@fs/gatsby-plugin-drive',
+      options: {
+        folderId: process.env.GOOGLE_DRIVE_FOLDER_ID,
+        key: {
+          private_key: process.env.GOOGLE_PRIVATE_KEY,
+          client_email: process.env.GOOGLE_CLIENT_EMAIL,
+        },
+        destination: `${__dirname}/remote-data`,
       },
     },
   ],
