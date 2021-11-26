@@ -27,7 +27,6 @@ ProjectListing.propTypes = {
         PropTypes.shape({
           name: PropTypes.string.isRequired,
           imageSrc: PropTypes.string.isRequired,
-          subCategories: PropTypes.arrayOf(PropTypes.string),
         })
       ),
     })

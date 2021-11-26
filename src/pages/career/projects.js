@@ -9,7 +9,12 @@ import showntellImage from '../../images/showntell.png';
 import sucovidImage from '../../images/sucovid.png';
 import fantasyFootballImage from '../../images/fantasy-football.png';
 import typescriptImage from '../../images/typescript.png';
+import reactImage from '../../images/react.png';
 import resourceRankImage from '../../images/resource-rank.jpeg';
+import firebaseImage from '../../images/firebase.png';
+import graphqlImage from '../../images/graphql.png';
+import playwrightImage from '../../images/playwright.png';
+import mongoImage from '../../images/mongo.png';
 import npmImage from '../../images/npm.png';
 import ProjectListing from '@/components/ProjectListing/ProjectListing';
 
@@ -48,6 +53,20 @@ const ProjectsPage = () => {
         'Receive chat nofications for transaction analysis',
         'Use automated analysis to decide who won the trade, or if a trade was driven by collusion',
       ],
+      technologies: [
+        {
+          name: 'TypeScript',
+          imageSrc: typescriptImage,
+        },
+        {
+          name: 'Playwright',
+          imageSrc: playwrightImage,
+        },
+        {
+          name: 'Firebase',
+          imageSrc: firebaseImage,
+        },
+      ],
     },
     {
       name: 'Resource Rank',
@@ -61,6 +80,24 @@ const ProjectsPage = () => {
         'Explore topics to find your next learning journey',
         'Rate resources based on helpfulness for learning a topic',
         'Add new topics and resources that are useful',
+      ],
+      technologies: [
+        {
+          name: 'React',
+          imageSrc: reactImage,
+        },
+        {
+          name: 'GraphQL',
+          imageSrc: graphqlImage,
+        },
+        {
+          name: 'MongoDB',
+          imageSrc: mongoImage,
+        },
+        {
+          name: 'Firebase',
+          imageSrc: firebaseImage,
+        },
       ],
     },
     {
@@ -79,22 +116,14 @@ const ProjectsPage = () => {
         {
           name: 'TypeScript',
           imageSrc: typescriptImage,
-          subCategories: [
-            'Web Scraping + Automation',
-            'Commander',
-            'Inquirer',
-            'Node CRON',
-            'Jest',
-          ],
         },
         {
           name: 'NPM Packaging',
           imageSrc: npmImage,
-          subCategories: [
-            'Deployed to NPM',
-            'GitHub Actions CI/CD',
-            'Semantic Versioning',
-          ],
+        },
+        {
+          name: 'Azure',
+          imageSrc: azureImage,
         },
       ],
     },
@@ -113,32 +142,16 @@ const ProjectsPage = () => {
       ],
       technologies: [
         {
-          name: 'ASP.NET Core',
-          imageSrc: dotNetImage,
-          subCategories: [
-            'Entity Framework',
-            'SignalR',
-            'Swagger UI',
-            'NUnit + Moq',
-            'MediatR',
-          ],
+          name: 'Vue',
+          imageSrc: vueImage,
         },
         {
-          name: 'Vue.js',
-          imageSrc: vueImage,
-          subCategories: ['Vuex', 'SignalR', 'Bootstrap', 'Vue Router'],
+          name: 'ASP.NET Core',
+          imageSrc: dotNetImage,
         },
         {
           name: 'Azure',
           imageSrc: azureImage,
-          subCategories: [
-            'Container Instances',
-            'Key Vault',
-            'Event Grid + Functions',
-            'Azure SQL',
-            'Blob Storage',
-            'Application Insights',
-          ],
         },
       ],
     },

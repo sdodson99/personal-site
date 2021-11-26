@@ -9,3 +9,13 @@
     max-width: 100px;
   }
 }
+
+.technology-images-container {
+  @apply flex justify-center mt-1;
+}
+
+.technology-image {
+  max-height: 20px;
+
+  @apply mx-2 md:mx-0 md:mr-3;
+}
