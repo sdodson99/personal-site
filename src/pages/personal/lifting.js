@@ -85,7 +85,7 @@ const LiftingPage = () => {
           >
             Strong
           </a>{' '}
-          account. I still need to automate this to update automatically!
+          account.
         </p>
         <div className="mt-8">
           <WorkoutListing workouts={recentWorkouts} />
