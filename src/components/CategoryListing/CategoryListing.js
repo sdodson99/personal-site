@@ -14,12 +14,14 @@ const CategoryListing = ({ categories }) => {
 };
 
 CategoryListing.propTypes = {
-  categories: PropTypes.arrayOf({
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    imageData: PropTypes.object.isRequired,
-    to: PropTypes.string.isRequired,
-  }),
+  categories: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      imageData: PropTypes.object.isRequired,
+      to: PropTypes.string.isRequired,
+    })
+  ),
 };
 
 CategoryListing.defaultProps = {

@@ -10,6 +10,12 @@ module.exports = {
     title: 'Personal Site',
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: ['G-SQR0P8BGQ0'],
+      },
+    },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
