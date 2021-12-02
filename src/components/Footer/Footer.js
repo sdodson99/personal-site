@@ -4,6 +4,7 @@ import linkedinImage from '../../images/linkedin.png';
 import youtubeImage from '../../images/youtube.png';
 import githubImage from '../../images/github.png';
 import { Link } from 'gatsby';
+import DonateButton from '../DonateButton/DonateButton';
 
 const LINKEDIN_URL = 'https://www.linkedin.com/in/sean-dodson21';
 const YOUTUBE_URL = 'https://www.youtube.com/channel/UC7X9mQ_XtTYWzr9Tf_NYcIg';
@@ -51,29 +52,37 @@ const Footer = () => (
           </div>
         </div>
         <div className="mt-8 sm:mt-0">
-          <div className="text-center">Follow My Socials</div>
-          <div className="flex">
-            <a href={LINKEDIN_URL} target="_blank" rel="noreferrer">
-              <img
-                className={styles.socialImage}
-                src={linkedinImage}
-                alt="LinkedIn"
-              />
-            </a>
-            <a href={YOUTUBE_URL} target="_blank" rel="noreferrer">
-              <img
-                className={styles.socialImage}
-                src={youtubeImage}
-                alt="YouTube"
-              />
-            </a>
-            <a href={GITHUB_URL} target="_blank" rel="noreferrer">
-              <img
-                className={styles.socialImage}
-                src={githubImage}
-                alt="GitHub"
-              />
-            </a>
+          <div>
+            <div className="text-center p-1">Buy Me a Coffee</div>
+            <div className="mt-1 flex justify-center">
+              <DonateButton />
+            </div>
+          </div>
+          <div className="mt-5">
+            <div className="text-center p-1">Follow My Socials</div>
+            <div className="flex">
+              <a href={LINKEDIN_URL} target="_blank" rel="noreferrer">
+                <img
+                  className={styles.socialImage}
+                  src={linkedinImage}
+                  alt="LinkedIn"
+                />
+              </a>
+              <a href={YOUTUBE_URL} target="_blank" rel="noreferrer">
+                <img
+                  className={styles.socialImage}
+                  src={youtubeImage}
+                  alt="YouTube"
+                />
+              </a>
+              <a href={GITHUB_URL} target="_blank" rel="noreferrer">
+                <img
+                  className={styles.socialImage}
+                  src={githubImage}
+                  alt="GitHub"
+                />
+              </a>
+            </div>
           </div>
         </div>
       </div>
