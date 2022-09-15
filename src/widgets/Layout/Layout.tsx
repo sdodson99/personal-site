@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
-import { Footer } from '../footer/Footer';
-import { Header } from '../header/Header';
+import { Footer } from 'widgets/footer/Footer';
+import { Header } from 'widgets/header/Header';
 import styles from './Layout.module.css';
 
 type LayoutProps = {
