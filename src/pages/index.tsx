@@ -1,7 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import Footer from '../widgets/Footer/Footer';
-import Header from '../widgets/Header/Header';
+import Layout from '../widgets/Layout/Layout';
 
 const Home: NextPage = () => {
   return (
@@ -15,8 +14,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header />
-      <Footer />
+      <Layout>Hello world!</Layout>
     </div>
   );
 };
