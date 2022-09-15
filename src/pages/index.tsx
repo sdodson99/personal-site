@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import Footer from '../widgets/Footer/Footer';
 import Header from '../widgets/Header/Header';
 
 const Home: NextPage = () => {
@@ -15,6 +16,7 @@ const Home: NextPage = () => {
       </Head>
 
       <Header />
+      <Footer />
     </div>
   );
 };
