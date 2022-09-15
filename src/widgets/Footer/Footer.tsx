@@ -3,7 +3,7 @@ import styles from './Footer.module.css';
 
 type FooterProps = {};
 
-const Footer = ({}: FooterProps) => {
+export const Footer = ({}: FooterProps) => {
   const year = new Date().getFullYear();
 
   return (
@@ -12,5 +12,3 @@ const Footer = ({}: FooterProps) => {
     </div>
   );
 };
-
-export default Footer;

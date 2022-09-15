@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import Layout from '../widgets/Layout/Layout';
+import { Layout } from '../widgets/layout';
 
 const Home: NextPage = () => {
   return (
