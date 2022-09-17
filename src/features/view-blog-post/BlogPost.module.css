@@ -1,0 +1,14 @@
+.blogPost {
+  margin-top: 2rem;
+}
+
+.title {
+  margin: 0;
+  font-size: var(--font-xlarge);
+}
+
+.publishDate {
+  margin-top: 0.25rem;
+  font-size: var(--font-small);
+  color: var(--color-sub-text);
+}
