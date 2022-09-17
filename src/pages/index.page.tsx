@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { Layout } from 'widgets/layout';
 import { BlogPostFeed } from 'features/view-blog-post-feed';
 
-const Home: NextPage = () => {
+const HomePage: NextPage = () => {
   const posts = [
     {
       id: '1',
@@ -62,4 +62,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default HomePage;

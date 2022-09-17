@@ -1,11 +1,11 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import Home from '../index.page';
+import HomePage from '../index.page';
 
-describe('<Home />', () => {
+describe('<HomePage />', () => {
   it('should render feed for all recent blog posts', () => {
-    render(<Home />);
+    render(<HomePage />);
 
     const posts = screen.getAllByTestId('BlogPostPreview');
 
