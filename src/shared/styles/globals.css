@@ -25,3 +25,9 @@ a:hover {
   color: #4072c2;
   text-decoration: underline;
 }
+
+.container-sm {
+  max-width: 600px;
+  margin: auto;
+  padding: 1rem 2rem;
+}
