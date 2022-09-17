@@ -29,7 +29,9 @@ export const BlogPostPreview = ({
       </time>
       <p className={styles.body}>{previewContent}</p>
       <div className={styles.readMore}>
-        <Link href={href}>Read more</Link>
+        <Link href={href}>
+          <a>Read more</a>
+        </Link>
       </div>
     </article>
   );
