@@ -1,0 +1,17 @@
+.heading {
+  margin: 0;
+  font-size: var(--font-medium);
+  color: var(--color-primary);
+}
+
+.posts {
+  margin-top: 2rem;
+}
+
+.postItem {
+  margin-bottom: 4rem;
+}
+
+.noPosts {
+  margin-top: 1rem;
+}
