@@ -2,6 +2,9 @@
   box-sizing: border-box;
 
   --color-primary: #475ba1;
+  --color-sub-text: #4d4d4d;
+
+  --font-small: 0.75rem;
 }
 
 html,
@@ -10,4 +13,14 @@ body {
   margin: 0;
   font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+a {
+  color: #409dc2;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #4072c2;
+  text-decoration: underline;
 }
