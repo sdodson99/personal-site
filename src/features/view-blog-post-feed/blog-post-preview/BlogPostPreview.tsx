@@ -23,7 +23,7 @@ export const BlogPostPreview = ({
 
   return (
     <article data-testid="BlogPostPreview">
-      <h2 className={styles.title}>{title}</h2>
+      <h3 className={styles.title}>{title}</h3>
       <time className={styles.publishDate} dateTime={publishDate.toISOString()}>
         {publishDateDisplay}
       </time>
