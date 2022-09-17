@@ -7,10 +7,17 @@ type HeaderProps = {};
 
 export const Header = ({}: HeaderProps) => (
   <header className={styles.header} data-testid="Header">
-    <Link href="/">
-      <a>
-        <Image src="/logo.svg" alt="Sean Dodson Logo" width={50} height={50} />
-      </a>
-    </Link>
+    <nav>
+      <Link href="/">
+        <a>
+          <Image
+            src="/logo.svg"
+            alt="Sean Dodson Logo"
+            width={50}
+            height={50}
+          />
+        </a>
+      </Link>
+    </nav>
   </header>
 );
