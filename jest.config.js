@@ -17,4 +17,5 @@ module.exports = {
       statements: 75,
     },
   },
+  resolver: '<rootDir>/test/unit/jest.resolver.js',
 };
