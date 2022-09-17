@@ -54,7 +54,7 @@ const Home: NextPage = () => {
       </Head>
 
       <Layout>
-        <div className="container-sm">
+        <div className="container container-sm">
           <BlogPostFeed posts={posts} />
         </div>
       </Layout>

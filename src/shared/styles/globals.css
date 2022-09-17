@@ -27,8 +27,13 @@ a:hover {
   text-decoration: underline;
 }
 
-.container-sm {
-  max-width: 600px;
+.container {
   margin: auto;
   padding: 1rem 2rem;
+  width: 100%;
+  max-width: 800px;
+}
+
+.container.container-sm {
+  max-width: 600px;
 }
