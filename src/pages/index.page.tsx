@@ -51,11 +51,6 @@ const Home: NextPage = () => {
     <div data-testid="HomePage">
       <Head>
         <title>Blog - Sean Dodson</title>
-        <meta
-          name="description"
-          content="Sean Dodson's personal site for blogging and career related content."
-        />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <Layout>
