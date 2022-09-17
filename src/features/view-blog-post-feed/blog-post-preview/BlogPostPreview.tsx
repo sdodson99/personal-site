@@ -24,7 +24,9 @@ export const BlogPostPreview = ({
   return (
     <article data-testid="BlogPostPreview">
       <h2 className={styles.title}>{title}</h2>
-      <div className={styles.publishDate}>{publishDateDisplay}</div>
+      <time className={styles.publishDate} dateTime={publishDate.toISOString()}>
+        {publishDateDisplay}
+      </time>
       <p className={styles.body}>{previewContent}</p>
       <div className={styles.readMore}>
         <Link href={href}>Read more</Link>
