@@ -18,4 +18,5 @@ module.exports = {
     },
   },
   resolver: '<rootDir>/test/unit/jest.resolver.js',
+  setupFilesAfterEnv: ['<rootDir>/test/unit/setup/setup-router.ts'],
 };
