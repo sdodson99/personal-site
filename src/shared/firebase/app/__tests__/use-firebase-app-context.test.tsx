@@ -32,4 +32,14 @@ describe('useFirebaseAppContext', () => {
 
     expect(result.current.app).toBe(expectedApp);
   });
+
+  it('should only initialize app once', async () => {
+    mockInitializeApp.mockReturnValue({});
+
+    renderHook(() => useFirebaseAppContext(), {
+      wrapper,
+    });
+
+    expect(mockInitializeApp).toBeCalledTimes(1);
+  });
 });

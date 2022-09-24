@@ -14,9 +14,13 @@ export const FirebaseAppProvider = ({
   const [app, setApp] = useState<FirebaseApp>();
 
   useEffect(() => {
+    if (app) {
+      return;
+    }
+
     const initializedApp = initializeApp(config);
     setApp(initializedApp);
-  }, []);
+  }, [app, config]);
 
   return (
     <FirebaseAppContext.Provider value={{ app }}>
