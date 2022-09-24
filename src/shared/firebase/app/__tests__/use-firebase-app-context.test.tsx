@@ -3,6 +3,8 @@ import { FirebaseAppProvider } from '../firebase-app-provider';
 import { useFirebaseAppContext } from '../use-firebase-app-context';
 import { FirebaseOptions, initializeApp } from 'firebase/app';
 import { when } from 'jest-when';
+import { MockTagProvider } from 'shared/mocking';
+import { setMockTag } from '../../../../../test/unit/utils/set-mock-tag';
 
 jest.mock('firebase/app');
 const mockInitializeApp = initializeApp as jest.Mock;
@@ -14,7 +16,9 @@ describe('useFirebaseAppContext', () => {
   beforeEach(() => {
     config = { key: '123' } as FirebaseOptions;
     wrapper = ({ children }) => (
-      <FirebaseAppProvider config={config}>{children}</FirebaseAppProvider>
+      <MockTagProvider>
+        <FirebaseAppProvider config={config}>{children}</FirebaseAppProvider>
+      </MockTagProvider>
     );
   });
 
@@ -22,24 +26,40 @@ describe('useFirebaseAppContext', () => {
     mockInitializeApp.mockReset();
   });
 
-  it('should return initialized app', async () => {
-    const expectedApp = { name: 'personal-site' };
-    when(mockInitializeApp).calledWith(config).mockReturnValue(expectedApp);
+  describe('in non-mock environment', () => {
+    it('should return initialized app', async () => {
+      const expectedApp = { name: 'personal-site' };
+      when(mockInitializeApp).calledWith(config).mockReturnValue(expectedApp);
 
-    const { result } = renderHook(() => useFirebaseAppContext(), {
-      wrapper,
+      const { result } = renderHook(() => useFirebaseAppContext(), {
+        wrapper,
+      });
+
+      expect(result.current.app).toBe(expectedApp);
     });
 
-    expect(result.current.app).toBe(expectedApp);
+    it('should only initialize app once', async () => {
+      mockInitializeApp.mockReturnValue({});
+
+      renderHook(() => useFirebaseAppContext(), {
+        wrapper,
+      });
+
+      expect(mockInitializeApp).toBeCalledTimes(1);
+    });
   });
 
-  it('should only initialize app once', async () => {
-    mockInitializeApp.mockReturnValue({});
-
-    renderHook(() => useFirebaseAppContext(), {
-      wrapper,
+  describe('in mock environment', () => {
+    beforeEach(() => {
+      setMockTag();
     });
 
-    expect(mockInitializeApp).toBeCalledTimes(1);
+    it('should return undefined Firebase app', () => {
+      const { result } = renderHook(() => useFirebaseAppContext(), {
+        wrapper,
+      });
+
+      expect(result.current.app).toBeUndefined();
+    });
   });
 });

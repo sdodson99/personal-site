@@ -1,30 +1,23 @@
-import { ReactNode, useEffect, useState } from 'react';
-import { FirebaseAppContext } from './use-firebase-app-context';
-import { FirebaseApp, initializeApp, FirebaseOptions } from 'firebase/app';
-
-type FirebaseAppProviderProps = {
-  children: ReactNode;
-  config: FirebaseOptions;
-};
+import {
+  RealFirebaseAppProvider,
+  RealFirebaseAppProviderProps,
+} from './real-firebase-app-provider';
+import { useMockTagContext } from 'shared/mocking';
+import { MockFirebaseAppProvider } from './mock-firebase-app-provider';
 
 export const FirebaseAppProvider = ({
   children,
   config,
-}: FirebaseAppProviderProps) => {
-  const [app, setApp] = useState<FirebaseApp>();
+}: RealFirebaseAppProviderProps) => {
+  const mockTag = useMockTagContext();
 
-  useEffect(() => {
-    if (app) {
-      return;
-    }
-
-    const initializedApp = initializeApp(config);
-    setApp(initializedApp);
-  }, [app, config]);
+  if (mockTag) {
+    return <MockFirebaseAppProvider>{children}</MockFirebaseAppProvider>;
+  }
 
   return (
-    <FirebaseAppContext.Provider value={{ app }}>
+    <RealFirebaseAppProvider config={config}>
       {children}
-    </FirebaseAppContext.Provider>
+    </RealFirebaseAppProvider>
   );
 };

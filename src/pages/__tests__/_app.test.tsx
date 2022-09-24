@@ -4,6 +4,7 @@ import { AppProps } from 'next/app';
 import { Router } from 'next/router';
 import Home from '../index.page';
 import App from '../_app.page';
+import { setMockTag } from '../../../test/unit/utils/set-mock-tag';
 
 describe('<App />', () => {
   let props: AppProps;
@@ -14,6 +15,8 @@ describe('<App />', () => {
       pageProps: {},
       router: {} as Router,
     };
+
+    setMockTag();
   });
 
   it('should render page', () => {
