@@ -1,5 +1,12 @@
 import { createContext, useContext } from 'react';
 
-export const MockTagContext = createContext<string | null>(null);
+type MockTagContextValue = {
+  mockTag?: string;
+  loading: boolean;
+};
+
+export const MockTagContext = createContext<MockTagContextValue>({
+  loading: false,
+});
 
 export const useMockTagContext = () => useContext(MockTagContext);

@@ -21,7 +21,8 @@
     "generate": "npx generate-react-cli component",
     "export": "next export",
     "deploy": "firebase deploy --only hosting",
-    "deploy:stage": "firebase hosting:channel:deploy --expires 7d"
+    "deploy:stage": "firebase hosting:channel:deploy --expires 7d",
+    "clean": "rm -rf .firebase .next coverage out && echo All clean!"
   },
   "dependencies": {
     "constate": "^3.3.2",

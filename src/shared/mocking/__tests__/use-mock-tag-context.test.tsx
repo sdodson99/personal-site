@@ -9,65 +9,123 @@ describe('useMockTagContext', () => {
 
   beforeEach(() => {
     mockTag = 'base-mock';
-
-    mockUseRouter.mockReturnValue({
-      isReady: true,
-      query: {
-        mock: mockTag,
-      },
-    });
   });
 
   afterEach(() => {
     mockUseRouter.mockReset();
+    process.env.NEXT_PUBLIC_ENVIRONMENT = undefined;
   });
 
-  it('should return mock tag when ready in non-production environment', () => {
-    const { result } = renderHook(() => useMockTagContext(), {
-      wrapper: MockTagProvider,
+  describe('in non-production', () => {
+    describe('mockTag', () => {
+      it('should return mock tag when ready', () => {
+        mockUseRouter.mockReturnValue({
+          isReady: true,
+          query: {
+            mock: mockTag,
+          },
+        });
+
+        const { result } = renderHook(() => useMockTagContext(), {
+          wrapper: MockTagProvider,
+        });
+
+        expect(result.current.mockTag).toBe(mockTag);
+      });
+
+      it('should return lowercase mock tag', () => {
+        const upperMockTag = 'BASE-MOCK';
+        mockUseRouter.mockReturnValue({
+          isReady: true,
+          query: {
+            mock: upperMockTag,
+          },
+        });
+
+        const { result } = renderHook(() => useMockTagContext(), {
+          wrapper: MockTagProvider,
+        });
+
+        expect(result.current.mockTag).toBe(mockTag);
+      });
+
+      it('should return undefined mock tag when no mock available', () => {
+        mockUseRouter.mockReturnValue({
+          isReady: true,
+          query: {},
+        });
+
+        const { result } = renderHook(() => useMockTagContext(), {
+          wrapper: MockTagProvider,
+        });
+
+        expect(result.current.mockTag).toBeUndefined();
+      });
     });
 
-    expect(result.current).toBe(mockTag);
+    describe('loading', () => {
+      it('should return true when router not ready', () => {
+        mockUseRouter.mockReturnValue({
+          isReady: false,
+          query: {},
+        });
+
+        const { result } = renderHook(() => useMockTagContext(), {
+          wrapper: MockTagProvider,
+        });
+
+        expect(result.current.loading).toBeTruthy();
+      });
+
+      it('should return false when router ready', () => {
+        mockUseRouter.mockReturnValue({
+          isReady: true,
+          query: {},
+        });
+
+        const { result } = renderHook(() => useMockTagContext(), {
+          wrapper: MockTagProvider,
+        });
+
+        expect(result.current.loading).toBeFalsy();
+      });
+    });
   });
 
-  it('should return lowercase mock tag', () => {
-    const upperMockTag = 'BASE-MOCK';
-    mockUseRouter.mockReturnValue({
-      isReady: true,
-      query: {
-        mock: upperMockTag,
-      },
+  describe('in production', () => {
+    beforeEach(() => {
+      process.env.NEXT_PUBLIC_ENVIRONMENT = 'production';
     });
 
-    const { result } = renderHook(() => useMockTagContext(), {
-      wrapper: MockTagProvider,
+    describe('mockTag', () => {
+      it('should return undefined even when query string has mock', () => {
+        mockUseRouter.mockReturnValue({
+          isReady: true,
+          query: {
+            mock: mockTag,
+          },
+        });
+
+        const { result } = renderHook(() => useMockTagContext(), {
+          wrapper: MockTagProvider,
+        });
+
+        expect(result.current.mockTag).toBeUndefined();
+      });
     });
 
-    expect(result.current).toBe(mockTag);
-  });
+    describe('loading', () => {
+      it('should return false even when router is not ready', () => {
+        mockUseRouter.mockReturnValue({
+          isReady: false,
+        });
 
-  it('should not render when mock tag loading in non-production environment', () => {
-    mockUseRouter.mockReturnValue({
-      isReady: false,
-      query: {
-        mock: mockTag,
-      },
+        const { result } = renderHook(() => useMockTagContext(), {
+          wrapper: MockTagProvider,
+        });
+
+        expect(result.current.loading).toBeFalsy();
+      });
     });
-
-    const { result } = renderHook(() => useMockTagContext(), {
-      wrapper: MockTagProvider,
-    });
-
-    expect(result.current).toBeNull();
-  });
-
-  it('should not return mock tag in production environment', () => {
-    process.env.NEXT_PUBLIC_ENVIRONMENT = 'production';
-
-    const { result } = renderHook(() => useMockTagContext(), {
-      wrapper: MockTagProvider,
-    });
-
-    expect(result.current).toBeNull();
   });
 });

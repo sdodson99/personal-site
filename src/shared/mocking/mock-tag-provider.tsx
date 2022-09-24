@@ -7,26 +7,24 @@ type MockTagProviderProps = {
 };
 
 export const MockTagProvider = ({ children }: MockTagProviderProps) => {
-  const { query, isReady } = useRouter();
+  const { query, isReady: isRouterReady } = useRouter();
 
-  // Do not allow mocking in production environment.
+  // Mocking not enabled in production environment.
   const mockingEnabled = !isProduction();
-  const mockTagLoading = !isReady;
 
   const getMockTag = () => {
     if (!mockingEnabled) {
-      return null;
+      return;
     }
 
-    return query['mock']?.toString().toLowerCase() ?? null;
+    return query['mock']?.toString().toLowerCase();
   };
 
-  if (mockingEnabled && mockTagLoading) {
-    return null;
-  }
+  const mockTag = getMockTag();
+  const loading = mockingEnabled && !isRouterReady;
 
   return (
-    <MockTagContext.Provider value={getMockTag()}>
+    <MockTagContext.Provider value={{ mockTag, loading }}>
       {children}
     </MockTagContext.Provider>
   );
