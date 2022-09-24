@@ -1,0 +1,52 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - 'develop'
+      - 'master'
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@master
+
+      - name: 'Setup Node'
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: 'Install packages'
+        run: 'npm ci'
+
+      - name: 'Lint'
+        run: 'npm run lint'
+
+      - name: 'Test'
+        run: 'npm run test:ci'
+
+      - name: 'Build'
+        run: 'npm run build:stage'
+
+      - name: 'Export'
+        run: 'npm run export'
+
+      - name: 'Stage'
+        id: 'stage'
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_PERSONAL_SITE }}
+          channelId: ${{ github.ref_name }}
+
+      - name: 'Setup Playwright'
+        run: 'npx playwright install'
+
+      - name: 'E2E'
+        run: 'BASE_URL=${{ steps.stage.outputs.details_url }} npm run e2e'
