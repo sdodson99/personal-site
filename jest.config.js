@@ -4,7 +4,7 @@ module.exports = {
   moduleNameMapper: {
     '.+\\.(css|styl|less|sass|scss)$': `identity-obj-proxy`,
   },
-  moduleDirectories: ['node_modules', 'src'],
+  moduleDirectories: ['node_modules', '<rootDir>/src'],
   clearMocks: true,
   collectCoverageFrom: ['<rootDir>/src/**/*.[jt]s?(x)'],
   coverageProvider: 'babel',
