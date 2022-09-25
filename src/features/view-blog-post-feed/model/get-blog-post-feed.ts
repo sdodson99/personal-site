@@ -9,7 +9,7 @@ export const getBlogPostFeed = async (): Promise<BlogPostFeedModel> => {
   const postFilePaths = glob.sync(`${postsDirectoryPath}/*.md`);
 
   const posts = postFilePaths.map((path) => {
-    const content = fs.readFileSync(path, 'utf-8');
+    const content = fs.readFileSync(path);
     const {
       data: { title, description, publishDate, slug },
     } = matter(content);
