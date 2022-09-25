@@ -1,26 +1,34 @@
 import { BlogPostFeedModel } from './blog-post-feed';
+import path from 'path';
+import fs from 'fs';
+import glob from 'glob';
+import matter from 'gray-matter';
 
 export const getBlogPostFeed = async (): Promise<BlogPostFeedModel> => {
+  const postsDirectoryPath = path.join(process.cwd(), 'content');
+  const postFilePaths = glob.sync(`${postsDirectoryPath}/*.md`);
+
+  const posts = postFilePaths.map((path) => {
+    const content = fs.readFileSync(path, 'utf-8');
+    const {
+      data: { title, description, publishDate, slug },
+    } = matter(content);
+
+    return {
+      title,
+      description,
+      publishDate,
+      slug,
+    };
+  });
+
+  const feed: BlogPostFeedModel = {
+    posts,
+  };
+
+  feed.posts.sort((a, b) => b.publishDate.localeCompare(a.publishDate));
+
   return {
-    posts: [
-      {
-        title: 'Post 1',
-        description: 'This is my first post!',
-        publishDate: '2022-09-14',
-        slug: 'post-1',
-      },
-      {
-        title: 'Post 2',
-        description: 'This is my second post!',
-        publishDate: '2022-08-14',
-        slug: 'post-2',
-      },
-      {
-        title: 'Post 3',
-        description: 'This is my third post!',
-        publishDate: '2022-07-14',
-        slug: 'post-3',
-      },
-    ],
+    posts,
   };
 };

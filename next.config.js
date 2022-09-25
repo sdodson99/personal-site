@@ -6,6 +6,11 @@ const nextConfig = {
     unoptimized: true,
   },
   pageExtensions: ['page.tsx'],
+  webpack: (config) => {
+    config.resolve.fallback = { fs: false, path: false };
+
+    return config;
+  },
 };
 
 module.exports = nextConfig;

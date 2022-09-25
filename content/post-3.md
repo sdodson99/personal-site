@@ -1,7 +1,7 @@
 ---
 title: Post 3
 description: This is my third post.
-publishDate: 2022-09-22
+publishDate: '2022-09-22'
 slug: post-3
 ---
 
