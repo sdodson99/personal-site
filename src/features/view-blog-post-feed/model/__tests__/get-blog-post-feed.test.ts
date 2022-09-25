@@ -30,16 +30,16 @@ describe('getBlogPostFeed', () => {
         slug: 'post-1',
       },
     ];
-    mockGlobSync.mockReturnValue(['/post-1', '/post-2']);
+    mockGlobSync.mockReturnValue(['/content/post-1.md', '/content/post-2.md']);
     when(mockReadFileSync)
-      .calledWith('/post-1', 'utf-8')
+      .calledWith('/content/post-1.md')
       .mockReturnValue(
-        "---\ntitle: Post 1\ndescription: This is my first post.\npublishDate: '2022-09-01'\nslug: post-1\n---"
+        "---\ntitle: Post 1\ndescription: This is my first post.\npublishDate: '2022-09-01'\n---"
       );
     when(mockReadFileSync)
-      .calledWith('/post-2', 'utf-8')
+      .calledWith('/content/post-2.md')
       .mockReturnValue(
-        "---\ntitle: Post 2\ndescription: This is my second post.\npublishDate: '2022-09-12'\nslug: post-2\n---"
+        "---\ntitle: Post 2\ndescription: This is my second post.\npublishDate: '2022-09-12'\n---"
       );
 
     const feed = await getBlogPostFeed();

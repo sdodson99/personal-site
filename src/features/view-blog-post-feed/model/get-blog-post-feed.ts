@@ -8,10 +8,12 @@ export const getBlogPostFeed = async (): Promise<BlogPostFeedModel> => {
   const postsDirectoryPath = path.join(process.cwd(), 'content');
   const postFilePaths = glob.sync(`${postsDirectoryPath}/*.md`);
 
-  const posts = postFilePaths.map((path) => {
-    const content = fs.readFileSync(path);
+  const posts = postFilePaths.map((filePath) => {
+    const slug = getSlug(filePath);
+
+    const content = fs.readFileSync(filePath);
     const {
-      data: { title, description, publishDate, slug },
+      data: { title, description, publishDate },
     } = matter(content);
 
     return {
@@ -31,4 +33,10 @@ export const getBlogPostFeed = async (): Promise<BlogPostFeedModel> => {
   return {
     posts,
   };
+};
+
+const getSlug = (postFilePath: string) => {
+  const splitPath = postFilePath.split('/');
+
+  return splitPath[splitPath.length - 1].replace('.md', '');
 };
