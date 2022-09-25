@@ -10,28 +10,25 @@ describe('<BlogPostFeed />', () => {
     props = {
       posts: [
         {
-          id: '1',
           title: 'Post Title 1',
+          description:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Commodo viverra maecenas accumsan lacus vel facilisis volutpat est velit. Lacus vel facilisis volutpat est velit egestas dui id ornare.',
           publishDate: new Date(2022, 7, 14),
-          previewContent:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Commodo viverra maecenas accumsan lacus vel facilisis volutpat est velit. Lacus vel facilisis volutpat est velit egestas dui id ornare.',
-          slug: 'post-title-1',
+          href: '/blog/post-title-1',
         },
         {
-          id: '2',
           title: 'Post Title 2',
-          publishDate: new Date(2022, 6, 1),
-          previewContent:
+          description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Commodo viverra maecenas accumsan lacus vel facilisis volutpat est velit. Lacus vel facilisis volutpat est velit egestas dui id ornare.',
-          slug: 'post-title-2',
+          publishDate: new Date(2022, 6, 1),
+          href: '/blog/post-title-2',
         },
         {
-          id: '3',
           title: 'Post Title 3',
-          publishDate: new Date(2022, 3, 28),
-          previewContent:
+          description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Commodo viverra maecenas accumsan lacus vel facilisis volutpat est velit. Lacus vel facilisis volutpat est velit egestas dui id ornare.',
-          slug: 'post-title-3',
+          publishDate: new Date(2022, 3, 28),
+          href: '/blog/post-title-3',
         },
       ],
     };

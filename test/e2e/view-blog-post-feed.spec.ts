@@ -7,5 +7,5 @@ test('view blog post feed', async ({ page, baseURL }) => {
   await expect(feedLocator).toBeVisible();
 
   const postsLocator = page.locator('data-testid=BlogPostPreview');
-  await expect(postsLocator).toHaveCount(5);
+  await expect(postsLocator).toHaveCount(3);
 });

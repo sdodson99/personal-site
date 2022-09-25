@@ -1,28 +1,20 @@
 import React from 'react';
-import { BlogPostPreview } from '../blog-post-preview';
+import { BlogPostPreview, BlogPostPreviewProps } from '../blog-post-preview';
 import styles from './BlogPostFeed.module.css';
 
-type BlogPostPreview = {
-  id: string;
-  title: string;
-  publishDate: Date;
-  previewContent: string;
-  slug: string;
-};
-
 export type BlogPostFeedProps = {
-  posts?: BlogPostPreview[];
+  posts?: BlogPostPreviewProps[];
 };
 
 export const BlogPostFeed = ({ posts = [] }: BlogPostFeedProps) => {
   const postPreviews = posts.map(
-    ({ id, title, publishDate, previewContent, slug }) => (
-      <div key={id} className={styles.postItem}>
+    ({ title, description, publishDate, href }) => (
+      <div key={title} className={styles.postItem}>
         <BlogPostPreview
           title={title}
+          description={description}
           publishDate={publishDate}
-          previewContent={previewContent}
-          href={`/blog/${slug}`}
+          href={href}
         />
       </div>
     )

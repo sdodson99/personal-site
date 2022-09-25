@@ -9,8 +9,8 @@ describe('<BlogPostPreview />', () => {
   beforeEach(() => {
     props = {
       title: 'Post Title 1',
+      description: 'This is the preview for my first post!',
       publishDate: new Date(2022, 7, 14),
-      previewContent: 'This is the preview for my first post!',
       href: '/blog/post-title-1',
     };
   });
@@ -26,7 +26,7 @@ describe('<BlogPostPreview />', () => {
   it('should render post preview content', () => {
     render(<BlogPostPreview {...props} />);
 
-    const content = screen.getByText(props.previewContent);
+    const content = screen.getByText(props.description);
 
     expect(content).toBeInTheDocument();
   });

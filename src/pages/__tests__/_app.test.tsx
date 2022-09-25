@@ -12,7 +12,9 @@ describe('<App />', () => {
   beforeEach(() => {
     props = {
       Component: Home,
-      pageProps: {},
+      pageProps: {
+        feed: { posts: [] },
+      },
       router: {} as Router,
     };
 

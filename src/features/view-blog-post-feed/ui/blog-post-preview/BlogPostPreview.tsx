@@ -5,15 +5,15 @@ import { DateTime } from 'luxon';
 
 export type BlogPostPreviewProps = {
   title: string;
+  description: string;
   publishDate: Date;
-  previewContent: string;
   href: string;
 };
 
 export const BlogPostPreview = ({
   title,
+  description,
   publishDate,
-  previewContent,
   href,
 }: BlogPostPreviewProps) => {
   const publishDateTime = DateTime.fromJSDate(publishDate);
@@ -27,7 +27,7 @@ export const BlogPostPreview = ({
       <time className={styles.publishDate} dateTime={publishDate.toISOString()}>
         {publishDateDisplay}
       </time>
-      <p className={styles.body}>{previewContent}</p>
+      <p className={styles.body}>{description}</p>
       <div className={styles.readMore}>
         <Link href={href}>
           <a>Read more</a>
