@@ -1,3 +1,4 @@
+import { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 import { DateTime } from 'luxon';
 import { Layout } from 'widgets/layout';
@@ -11,7 +12,7 @@ export type HomePageProps = {
   feed: BlogPostFeedModel;
 };
 
-const HomePage = ({ feed }: HomePageProps) => {
+const HomePage: NextPage<HomePageProps> = ({ feed }) => {
   const posts = feed.posts.map((p) => ({
     ...p,
     publishDate: DateTime.fromFormat(p.publishDate, 'yyyy-LL-dd').toJSDate(),
@@ -33,7 +34,7 @@ const HomePage = ({ feed }: HomePageProps) => {
   );
 };
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const feed = await getBlogPostFeed();
 
   return {
@@ -41,6 +42,6 @@ export async function getStaticProps() {
       feed,
     },
   };
-}
+};
 
 export default HomePage;

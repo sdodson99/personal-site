@@ -3,24 +3,39 @@ import Head from 'next/head';
 import { Layout } from 'widgets/layout';
 import { BlogPost } from 'features/view-blog-post';
 import { getBlogPostSlugs } from 'features/view-blog-post/model';
+import { getBlogPost } from 'features/view-blog-post/model/get-blog-post';
+import { DateTime } from 'luxon';
 
-const BlogPostPage: NextPage = () => {
-  const post = {
-    title: 'Post Title 1',
-    publishDate: new Date(2022, 7, 14),
-    content:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Commodo viverra maecenas accumsan lacus vel facilisis volutpat est velit. Lacus vel facilisis volutpat est velit egestas dui id ornare.',
-  };
+type BlogPostPageProps = {
+  title: string;
+  publishDate: string;
+  content: string;
+};
+
+const BlogPostPage: NextPage<BlogPostPageProps> = ({
+  title,
+  publishDate,
+  content,
+}) => {
+  const formattedPublishDate = DateTime.fromFormat(
+    publishDate,
+    'yyyy-LL-dd'
+  ).toJSDate();
 
   return (
-    <div data-testid="HomePage">
+    <div data-testid="BlogPostPage">
       <Head>
-        <title>{`${post.title} - Sean Dodson`}</title>
+        <title>{`${title} - Sean Dodson`}</title>
       </Head>
 
       <Layout>
         <div className="container">
-          <BlogPost {...post} backHref="/" />
+          <BlogPost
+            title={title}
+            publishDate={formattedPublishDate}
+            content={content}
+            backHref="/"
+          />
         </div>
       </Layout>
     </div>
@@ -43,8 +58,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const slug = context.params?.slug;
 
+  if (!slug || Array.isArray(slug)) {
+    throw new Error('Slug must be a string.');
+  }
+
+  const post = await getBlogPost(slug);
+
   return {
-    props: { post: {} },
+    props: post,
   };
 };
 
