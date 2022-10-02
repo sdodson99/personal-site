@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 import styles from './BlogPost.module.css';
 import { DateTime } from 'luxon';
+import md from 'markdown-it';
 
 export type BlogPostProps = {
   title: string;
@@ -34,9 +35,7 @@ export const BlogPost = ({
         >
           {publishDateDisplay}
         </time>
-        <div>
-          <p>{content}</p>
-        </div>
+        <div dangerouslySetInnerHTML={{ __html: md().render(content) }} />
       </article>
     </div>
   );
