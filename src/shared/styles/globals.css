@@ -38,3 +38,11 @@ a:hover {
 .container.container-sm {
   max-width: 600px;
 }
+
+.text-center {
+  text-align: center;
+}
+
+.mt-5 {
+  margin-top: 1rem;
+}
