@@ -9,6 +9,10 @@ beforeEach(() => {
   mockUseRouter.mockReturnValue({
     isReady: true,
     query: {},
+    events: {
+      on: jest.fn(),
+      off: jest.fn(),
+    },
   });
 });
 

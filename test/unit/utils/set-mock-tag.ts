@@ -8,5 +8,9 @@ export const setMockTag = (mockTag = 'base') => {
     query: {
       mock: mockTag,
     },
+    events: {
+      on: jest.fn(),
+      off: jest.fn(),
+    },
   });
 };

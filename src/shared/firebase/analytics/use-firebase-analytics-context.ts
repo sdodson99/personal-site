@@ -1,19 +1,23 @@
 import { getAnalytics } from 'firebase/analytics';
 import { useFirebaseAppContext } from '../app';
 import constate from 'constate';
+import { useCallback, useMemo } from 'react';
 
 const useFirebaseAnalytics = () => {
   const { app } = useFirebaseAppContext();
 
-  const getFirebaseAnalytics = () => {
+  const getFirebaseAnalytics = useCallback(() => {
     if (!app) {
       return null;
     }
 
     return getAnalytics(app);
-  };
+  }, [app]);
 
-  const analytics = getFirebaseAnalytics();
+  const analytics = useMemo(
+    () => getFirebaseAnalytics(),
+    [getFirebaseAnalytics]
+  );
 
   return { analytics };
 };

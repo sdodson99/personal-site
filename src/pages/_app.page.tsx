@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { FirebaseProvider } from 'shared/firebase';
 import { MockTagProvider } from 'shared/mocking';
+import { LogPageViewEventBoundary } from '@/shared/analytics';
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
@@ -17,7 +18,9 @@ const App = ({ Component, pageProps }: AppProps) => {
       </Head>
       <MockTagProvider>
         <FirebaseProvider>
-          <Component {...pageProps} />
+          <LogPageViewEventBoundary>
+            <Component {...pageProps} />
+          </LogPageViewEventBoundary>
         </FirebaseProvider>
       </MockTagProvider>
     </>
