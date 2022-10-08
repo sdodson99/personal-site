@@ -12,6 +12,6 @@ test('view blog post', async ({ page, baseURL }) => {
   const backToFeedButton = page.locator('text=Back to recent posts');
   await backToFeedButton.click();
 
-  const feedHeaderLocator = page.locator('text=Recently Published');
+  const feedHeaderLocator = page.locator('text=Latest Blog Posts');
   await expect(feedHeaderLocator).toBeVisible();
 });

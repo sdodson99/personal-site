@@ -1,3 +1,2 @@
-export { useFirebaseAppContext } from './app';
-export { useFirebaseAnalyticsContext } from './analytics';
-export * from './firebase-provider';
+export { useFirebaseAppContext } from './use-firebase-app-context';
+export * from './firebase-app-provider';

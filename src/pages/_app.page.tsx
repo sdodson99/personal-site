@@ -1,9 +1,19 @@
 import 'shared/styles/globals.css';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import { FirebaseProvider } from 'shared/firebase';
+import { FirebaseAppProvider } from 'shared/firebase';
 import { MockTagProvider } from 'shared/mocking';
-import { LogPageViewEventBoundary } from '@/shared/analytics';
+import { AnalyticsProvider } from '@/shared/analytics';
+
+const firebaseConfig = {
+  apiKey: 'AIzaSyAJvMQW4ljm5DCnrd9ilkIgJb77IZvxzXI',
+  authDomain: 'personal-site-60896.firebaseapp.com',
+  projectId: 'personal-site-60896',
+  storageBucket: 'personal-site-60896.appspot.com',
+  messagingSenderId: '1038050866165',
+  appId: '1:1038050866165:web:d90b22e7f7ef7011b6a6bc',
+  measurementId: 'G-6QL5D7KTPK',
+};
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
@@ -17,11 +27,11 @@ const App = ({ Component, pageProps }: AppProps) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MockTagProvider>
-        <FirebaseProvider>
-          <LogPageViewEventBoundary>
+        <FirebaseAppProvider config={firebaseConfig}>
+          <AnalyticsProvider>
             <Component {...pageProps} />
-          </LogPageViewEventBoundary>
-        </FirebaseProvider>
+          </AnalyticsProvider>
+        </FirebaseAppProvider>
       </MockTagProvider>
     </>
   );

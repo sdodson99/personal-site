@@ -2,15 +2,13 @@ import { renderHook } from '@testing-library/react';
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
 import { when } from 'jest-when';
-import { FirebaseAppProvider } from 'shared/firebase/app';
+import { FirebaseAppProvider } from '@/shared/firebase';
 import {
   FirebaseAnalyticsProvider,
   useFirebaseAnalyticsContext,
 } from '../use-firebase-analytics-context';
 
-jest.mock('firebase/app');
 const mockInitializeApp = initializeApp as jest.Mock;
-
 const mockGetAnalytics = getAnalytics as jest.Mock;
 
 describe('useFirebaseAnalyticsContext', () => {

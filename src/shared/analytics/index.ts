@@ -1,2 +1,2 @@
-export * from './use-log-event';
-export * from './log-page-view-event-boundary';
+export * from './events/use-log-event';
+export * from './analytics-provider';

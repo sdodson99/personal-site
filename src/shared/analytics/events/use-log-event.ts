@@ -1,4 +1,4 @@
-import { useFirebaseAnalyticsContext } from '../firebase';
+import { useFirebaseAnalyticsContext } from '../firebase/use-firebase-analytics-context';
 import { logEvent as logFirebaseAnalyticsEvent } from 'firebase/analytics';
 import { useCallback } from 'react';
 

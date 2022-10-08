@@ -1,5 +1,5 @@
 import { getAnalytics } from 'firebase/analytics';
-import { useFirebaseAppContext } from '../app';
+import { useFirebaseAppContext } from '@/shared/firebase';
 import constate from 'constate';
 import { useCallback, useMemo } from 'react';
 
