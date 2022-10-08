@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.skip('view blog post', async ({ page, baseURL }) => {
+test('view blog post', async ({ page, baseURL }) => {
   await page.goto(`${baseURL}`);
 
   const firstBlogPostReadMoreButton = page.locator('text=Read more').first();

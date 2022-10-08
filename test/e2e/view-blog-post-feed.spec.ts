@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.skip('view blog post feed', async ({ page, baseURL }) => {
+test('view blog post feed', async ({ page, baseURL }) => {
   await page.goto(`${baseURL}`);
 
   const feedLocator = page.locator('text=Recently Published');
