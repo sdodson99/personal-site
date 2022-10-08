@@ -30,7 +30,9 @@ describe('getBlogPostFeed', () => {
         slug: 'post-1',
       },
     ];
-    mockGlobSync.mockReturnValue(['/content/post-1.md', '/content/post-2.md']);
+    when(mockGlobSync)
+      .calledWith('/content/*.md')
+      .mockReturnValue(['/content/post-1.md', '/content/post-2.md']);
     when(mockReadFileSync)
       .calledWith('/content/post-1.md')
       .mockReturnValue(
@@ -42,7 +44,7 @@ describe('getBlogPostFeed', () => {
         "---\ntitle: Post 2\ndescription: This is my second post.\npublishDate: '2022-09-12'\n---"
       );
 
-    const feed = await getBlogPostFeed();
+    const feed = await getBlogPostFeed('/content');
 
     expect(feed.posts).toEqual(expectedPosts);
   });

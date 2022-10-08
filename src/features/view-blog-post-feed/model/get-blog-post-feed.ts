@@ -1,11 +1,11 @@
 import { BlogPostFeedModel } from './blog-post-feed';
-import path from 'path';
 import fs from 'fs';
 import glob from 'glob';
 import matter from 'gray-matter';
 
-export const getBlogPostFeed = async (): Promise<BlogPostFeedModel> => {
-  const postsDirectoryPath = path.join(process.cwd(), 'content');
+export const getBlogPostFeed = async (
+  postsDirectoryPath: string
+): Promise<BlogPostFeedModel> => {
   const postFilePaths = glob.sync(`${postsDirectoryPath}/*.md`);
 
   const posts = postFilePaths.map((filePath) => {

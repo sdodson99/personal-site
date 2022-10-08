@@ -17,7 +17,7 @@ describe('getBlogPost', () => {
         "---\ntitle: Post 1\npublishDate: '2022-09-01'\n---Hello world!"
       );
 
-    const post = await getBlogPost('post-1');
+    const post = await getBlogPost('/content', 'post-1');
 
     expect(post).toEqual({
       title: 'Post 1',

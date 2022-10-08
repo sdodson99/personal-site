@@ -7,6 +7,7 @@ import {
   BlogPostFeedModel,
   getBlogPostFeed,
 } from 'features/view-blog-post-feed';
+import { createBlogPostsDirectory } from '@/entities/blog-posts-directory';
 
 export type HomePageProps = {
   feed: BlogPostFeedModel;
@@ -35,7 +36,11 @@ const HomePage: NextPage<HomePageProps> = ({ feed }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const feed = await getBlogPostFeed();
+  const postsDirectoryPath = createBlogPostsDirectory(
+    process.env.BLOG_CONTENT_MOCK
+  );
+
+  const feed = await getBlogPostFeed(postsDirectoryPath);
 
   return {
     props: {

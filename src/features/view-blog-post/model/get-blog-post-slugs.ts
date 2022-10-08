@@ -1,8 +1,8 @@
-import path from 'path';
 import glob from 'glob';
 
-export const getBlogPostSlugs = async (): Promise<string[]> => {
-  const postsDirectoryPath = path.join(process.cwd(), 'content');
+export const getBlogPostSlugs = async (
+  postsDirectoryPath: string
+): Promise<string[]> => {
   const postFilePaths = glob.sync(`${postsDirectoryPath}/*.md`);
 
   const slugs = postFilePaths.map((filePath) => getSlug(filePath));

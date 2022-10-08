@@ -5,6 +5,7 @@ import { BlogPost } from 'features/view-blog-post';
 import { getBlogPostSlugs } from 'features/view-blog-post/model';
 import { getBlogPost } from 'features/view-blog-post/model/get-blog-post';
 import { DateTime } from 'luxon';
+import { createBlogPostsDirectory } from '@/entities/blog-posts-directory';
 
 type BlogPostPageProps = {
   title: string;
@@ -43,7 +44,11 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const slugs = await getBlogPostSlugs();
+  const postsDirectoryPath = createBlogPostsDirectory(
+    process.env.BLOG_CONTENT_MOCK
+  );
+
+  const slugs = await getBlogPostSlugs(postsDirectoryPath);
 
   const paths = slugs.map((slug) => ({
     params: { slug },
@@ -62,7 +67,11 @@ export const getStaticProps: GetStaticProps = async (context) => {
     throw new Error('Slug must be a string.');
   }
 
-  const post = await getBlogPost(slug);
+  const postsDirectoryPath = createBlogPostsDirectory(
+    process.env.BLOG_CONTENT_MOCK
+  );
+
+  const post = await getBlogPost(postsDirectoryPath, slug);
 
   return {
     props: post,

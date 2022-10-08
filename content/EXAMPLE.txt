@@ -1,7 +1,0 @@
----
-title: Post 1
-description: This is an example.
-publishDate: '2022-08-14'
----
-
-This is an example blog post. It does not get published because it is not a Markdown file.

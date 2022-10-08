@@ -1,10 +1,11 @@
 import { BlogPost } from './blog-post';
-import path from 'path';
 import fs from 'fs';
 import matter from 'gray-matter';
 
-export const getBlogPost = async (slug: string): Promise<BlogPost> => {
-  const postsDirectoryPath = path.join(process.cwd(), 'content');
+export const getBlogPost = async (
+  postsDirectoryPath: string,
+  slug: string
+): Promise<BlogPost> => {
   const postFilePath = `${postsDirectoryPath}/${slug}.md`;
 
   const postFileContent = fs.readFileSync(postFilePath);
