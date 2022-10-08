@@ -3,8 +3,8 @@ import { FirebaseAppProvider } from '../firebase-app-provider';
 import { useFirebaseAppContext } from '../use-firebase-app-context';
 import { FirebaseOptions, initializeApp } from 'firebase/app';
 import { when } from 'jest-when';
-import { MockTagProvider } from 'shared/mocking';
-import { setMockTag } from '../../../../test/unit/utils/set-mock-tag';
+import { MockTagProvider } from '@/shared/mocking';
+import { setMockTag } from '@/test/unit/utils/set-mock-tag';
 
 const mockInitializeApp = initializeApp as jest.Mock;
 

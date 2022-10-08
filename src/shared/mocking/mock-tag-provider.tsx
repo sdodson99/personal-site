@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { isProduction } from 'shared/configuration';
+import { isProduction } from '@/shared/configuration';
 import { MockTagContext } from './use-mock-tag-context';
 
 type MockTagProviderProps = {

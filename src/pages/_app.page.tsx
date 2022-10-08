@@ -1,8 +1,8 @@
 import 'shared/styles/globals.css';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import { FirebaseAppProvider } from 'shared/firebase';
-import { MockTagProvider } from 'shared/mocking';
+import { FirebaseAppProvider } from '@/shared/firebase';
+import { MockTagProvider } from '@/shared/mocking';
 import { AnalyticsProvider } from '@/shared/analytics';
 
 const firebaseConfig = {

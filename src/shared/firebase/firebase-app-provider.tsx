@@ -2,7 +2,7 @@ import {
   RealFirebaseAppProvider,
   RealFirebaseAppProviderProps,
 } from './real-firebase-app-provider';
-import { useMockTagContext } from 'shared/mocking';
+import { useMockTagContext } from '@/shared/mocking';
 import { MockFirebaseAppProvider } from './mock-firebase-app-provider';
 
 export const FirebaseAppProvider = ({

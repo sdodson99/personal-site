@@ -4,7 +4,7 @@ import {
 } from 'firebase/analytics';
 import { renderHook } from '@testing-library/react';
 import { useLogEvent } from '../use-log-event';
-import { MockApp } from '../../../../../test/unit/utils/mock-app';
+import { MockApp } from '@/test/unit/utils/mock-app';
 
 const mockLogFirebaseAnalyticsEvent = logFirebaseAnalyticsEvent as jest.Mock;
 const mockGetAnalytics = getAnalytics as jest.Mock;

@@ -1,5 +1,5 @@
 import path from 'path';
-import { isProduction } from 'shared/configuration';
+import { isProduction } from '@/shared/configuration';
 
 export const createBlogPostsDirectory = (mock?: string) => {
   const contentDirectoryPath = path.join(process.cwd(), 'content');

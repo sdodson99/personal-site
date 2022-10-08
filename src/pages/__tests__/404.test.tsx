@@ -1,4 +1,4 @@
-import NotFoundPage from 'pages/404.page';
+import NotFoundPage from '../404.page';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
