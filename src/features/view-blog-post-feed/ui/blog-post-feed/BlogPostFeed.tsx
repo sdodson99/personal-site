@@ -24,7 +24,7 @@ export const BlogPostFeed = ({ posts = [] }: BlogPostFeedProps) => {
 
   return (
     <section data-testid="BlogPostFeed">
-      <h2 className={styles.heading}>Recently Published</h2>
+      <h2 className={styles.heading}>Latest Blog Posts</h2>
 
       {hasPosts ? (
         <div className={styles.posts}>{postPreviews}</div>
