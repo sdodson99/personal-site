@@ -1,29 +1,16 @@
-import { useFirebaseAnalyticsContext } from '../../firebase';
 import { logEvent as logFirebaseAnalyticsEvent } from 'firebase/analytics';
 import { render } from '@testing-library/react';
 import { NextRouter, useRouter } from 'next/router';
 import { LogPageViewEventBoundary } from '../log-page-view-event-boundary';
+import { FirebaseProvider } from '@/shared/firebase';
 
-jest.mock('firebase/analytics');
+const mockUseRouter = useRouter as jest.Mock;
 const mockLogFirebaseAnalyticsEvent = logFirebaseAnalyticsEvent as jest.Mock;
 
-jest.mock('../../firebase');
-const mockUseFirebaseAnalyticsContext =
-  useFirebaseAnalyticsContext as jest.Mock;
-
-jest.mock('next/router');
-const mockUseRouter = useRouter as jest.Mock;
-
 describe('LogPageViewEventBoundary', () => {
-  let mockAnalytics: string;
   let mockRouter: NextRouter;
 
   beforeEach(() => {
-    mockAnalytics = 'mock-analytics';
-    mockUseFirebaseAnalyticsContext.mockReturnValue({
-      analytics: mockAnalytics,
-    });
-
     mockRouter = {
       events: {
         on: jest.fn(),
@@ -41,19 +28,16 @@ describe('LogPageViewEventBoundary', () => {
     });
   });
 
-  afterEach(() => {
-    mockLogFirebaseAnalyticsEvent.mockReset();
-    mockUseFirebaseAnalyticsContext.mockReset();
-  });
-
   it('should log page view event with page parameters on page change', () => {
-    render(<LogPageViewEventBoundary />);
+    render(<LogPageViewEventBoundary />, {
+      wrapper: FirebaseProvider,
+    });
 
-    // Simulate page change.
-    (mockRouter.events.on as jest.Mock).mock.calls[0][1]();
+    // Simulate page change on handler w/ analytics loaded.
+    (mockRouter.events.on as jest.Mock).mock.calls[1][1]();
 
     expect(mockLogFirebaseAnalyticsEvent).toBeCalledWith(
-      mockAnalytics,
+      'mock-firebase-analytics',
       'page_view',
       {
         page_title: document.title,
@@ -63,7 +47,9 @@ describe('LogPageViewEventBoundary', () => {
   });
 
   it('should cleanup page view event logging when un-mounted', () => {
-    const { unmount } = render(<LogPageViewEventBoundary />);
+    const { unmount } = render(<LogPageViewEventBoundary />, {
+      wrapper: FirebaseProvider,
+    });
 
     unmount();
 

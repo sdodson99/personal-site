@@ -22,5 +22,8 @@ module.exports = {
     },
   },
   resolver: '<rootDir>/test/unit/jest.resolver.js',
-  setupFilesAfterEnv: ['<rootDir>/test/unit/setup/setup-router.ts'],
+  setupFilesAfterEnv: [
+    '<rootDir>/test/unit/setup/setup-router.ts',
+    '<rootDir>/test/unit/setup/setup-firebase.ts',
+  ],
 };

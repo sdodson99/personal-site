@@ -11,7 +11,6 @@ import {
 jest.mock('firebase/app');
 const mockInitializeApp = initializeApp as jest.Mock;
 
-jest.mock('firebase/analytics');
 const mockGetAnalytics = getAnalytics as jest.Mock;
 
 describe('useFirebaseAnalyticsContext', () => {
@@ -27,7 +26,6 @@ describe('useFirebaseAnalyticsContext', () => {
 
   afterEach(() => {
     mockInitializeApp.mockReset();
-    mockGetAnalytics.mockReset();
   });
 
   it('should return analytics for Firebase app', async () => {

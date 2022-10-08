@@ -6,7 +6,6 @@ import { when } from 'jest-when';
 import { MockTagProvider } from 'shared/mocking';
 import { setMockTag } from '../../../../../test/unit/utils/set-mock-tag';
 
-jest.mock('firebase/app');
 const mockInitializeApp = initializeApp as jest.Mock;
 
 describe('useFirebaseAppContext', () => {
@@ -20,10 +19,6 @@ describe('useFirebaseAppContext', () => {
         <FirebaseAppProvider config={config}>{children}</FirebaseAppProvider>
       </MockTagProvider>
     );
-  });
-
-  afterEach(() => {
-    mockInitializeApp.mockReset();
   });
 
   describe('in non-mock environment', () => {
