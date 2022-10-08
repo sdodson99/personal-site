@@ -1,12 +1,12 @@
 import { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 import { DateTime } from 'luxon';
-import { Layout } from 'widgets/layout';
+import { Layout } from '@/widgets/layout';
 import {
   BlogPostFeed,
   BlogPostFeedModel,
   getBlogPostFeed,
-} from 'features/view-blog-post-feed';
+} from '@/features/view-blog-post-feed';
 import { createBlogPostsDirectory } from '@/entities/blog-posts-directory';
 
 export type HomePageProps = {

@@ -3,7 +3,10 @@ module.exports = {
   testEnvironment: 'jest-environment-jsdom',
   moduleNameMapper: {
     '.+\\.(css|styl|less|sass|scss)$': `identity-obj-proxy`,
+    '^@/widgets(.*)$': '<rootDir>/src/widgets/$1',
+    '^@/features(.*)$': '<rootDir>/src/features/$1',
     '^@/entities(.*)$': '<rootDir>/src/entities/$1',
+    '^@/shared(.*)$': '<rootDir>/src/shared/$1',
   },
   moduleDirectories: ['node_modules', '<rootDir>/src'],
   clearMocks: true,

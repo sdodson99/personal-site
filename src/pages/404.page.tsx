@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Layout } from 'widgets/layout';
+import { Layout } from '@/widgets/layout';
 
 const NotFoundPage = () => (
   <Layout>

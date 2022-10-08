@@ -1,9 +1,9 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
-import { Layout } from 'widgets/layout';
-import { BlogPost } from 'features/view-blog-post';
-import { getBlogPostSlugs } from 'features/view-blog-post/model';
-import { getBlogPost } from 'features/view-blog-post/model/get-blog-post';
+import { Layout } from '@/widgets/layout';
+import { BlogPost } from '@/features/view-blog-post';
+import { getBlogPostSlugs } from '@/features/view-blog-post/model';
+import { getBlogPost } from '@/features/view-blog-post/model/get-blog-post';
 import { DateTime } from 'luxon';
 import { createBlogPostsDirectory } from '@/entities/blog-posts-directory';
 
