@@ -40,17 +40,24 @@ export const BlogPostPreview = ({
     .toUpperCase();
 
   return (
-    <article data-testid="BlogPostPreview">
-      <h3 className={styles.title}>{title}</h3>
-      <time className={styles.publishDate} dateTime={publishDate.toISOString()}>
-        {publishDateDisplay}
-      </time>
-      <p className={styles.body}>{description}</p>
-      <div className={styles.readMore}>
-        <Link href={href}>
-          <a onClick={() => onClickRead?.()}>Read more</a>
-        </Link>
-      </div>
+    <article>
+      <Link href={href}>
+        <a
+          className={styles.container}
+          data-testid="BlogPostPreview"
+          onClick={() => onClickRead?.()}
+        >
+          <h3 className={styles.title}>{title}</h3>
+          <time
+            className={styles.publishDate}
+            dateTime={publishDate.toISOString()}
+          >
+            {publishDateDisplay}
+          </time>
+          <p className={styles.body}>{description}</p>
+          <div className={styles.readMore}>Read more</div>
+        </a>
+      </Link>
     </article>
   );
 };

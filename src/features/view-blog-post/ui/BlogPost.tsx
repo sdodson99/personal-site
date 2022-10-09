@@ -25,7 +25,7 @@ export const BlogPost = ({
   return (
     <div data-testid="BlogPost">
       <Link href={backHref}>
-        <a>Back to recent posts</a>
+        <a className="link">Back to recent posts</a>
       </Link>
       <article className={styles.blogPost}>
         <h1 className={styles.title}>{title}</h1>

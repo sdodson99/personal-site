@@ -46,14 +46,6 @@ describe('<BlogPostFeed />', () => {
     expect(posts).toHaveLength(3);
   });
 
-  it('should render link to full post for post slug', () => {
-    render(<BlogPostFeed {...props} />, { wrapper: TestApp });
-
-    const readMoreLink = screen.getAllByText('Read more')[0];
-
-    expect(readMoreLink.getAttribute('href')).toBe('/blog/post-title-1');
-  });
-
   it('should render fallback content when no posts have been published', () => {
     delete props.posts;
     render(<BlogPostFeed {...props} />, { wrapper: TestApp });
@@ -63,5 +55,13 @@ describe('<BlogPostFeed />', () => {
     );
 
     expect(fallbackContent).toBeInTheDocument();
+  });
+
+  it('should go to blog post when user clicks post', () => {
+    render(<BlogPostFeed {...props} />, { wrapper: TestApp });
+
+    const blogPost = screen.getAllByTestId('BlogPostPreview')[0];
+
+    expect(blogPost.getAttribute('href')).toBe('/blog/post-title-1');
   });
 });

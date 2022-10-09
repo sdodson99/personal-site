@@ -34,14 +34,6 @@ describe('<BlogPostPreview />', () => {
     expect(content).toBeInTheDocument();
   });
 
-  it('should render link to full blog post', () => {
-    render(<BlogPostPreview {...props} />, { wrapper: TestApp });
-
-    const readMoreLink = screen.getByText('Read more');
-
-    expect(readMoreLink.getAttribute('href')).toBe(props.href);
-  });
-
   it('should render formatted publish date', () => {
     render(<BlogPostPreview {...props} />, { wrapper: TestApp });
 
@@ -50,11 +42,19 @@ describe('<BlogPostPreview />', () => {
     expect(formattedPublishDate).toBeInTheDocument();
   });
 
-  it('should log select item analytics event when user clicks read', () => {
+  it('should go to blog post when user clicks post', () => {
     render(<BlogPostPreview {...props} />, { wrapper: TestApp });
 
-    const readMoreLink = screen.getByText('Read more');
-    fireEvent.click(readMoreLink);
+    const blogPost = screen.getByTestId('BlogPostPreview');
+
+    expect(blogPost.getAttribute('href')).toBe(props.href);
+  });
+
+  it('should log select item analytics event when user clicks post', () => {
+    render(<BlogPostPreview {...props} />, { wrapper: TestApp });
+
+    const blogPost = screen.getByTestId('BlogPostPreview');
+    fireEvent.click(blogPost);
 
     expect(logEvent).toBeCalledWith('mock-firebase-analytics', 'select_item', {
       item_list_id: 'blog_post_feed',

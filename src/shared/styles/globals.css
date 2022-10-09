@@ -4,6 +4,9 @@
   --color-primary: #475ba1;
   --color-sub-text: #4d4d4d;
 
+  --color-link: #409dc2;
+  --color-link-hover: #4072c2;
+
   --font-small: 0.75rem;
   --font-medium: 1rem;
   --font-large: 1.5rem;
@@ -19,12 +22,17 @@ body {
 }
 
 a {
-  color: #409dc2;
+  color: inherit;
   text-decoration: none;
 }
 
-a:hover {
-  color: #4072c2;
+.link {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+.link:hover {
+  color: var(--color-link-hover);
   text-decoration: underline;
 }
 
