@@ -1,4 +1,4 @@
-import 'shared/styles/globals.css';
+import '@/shared/styles/globals.css';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { FirebaseAppProvider } from '@/shared/firebase';

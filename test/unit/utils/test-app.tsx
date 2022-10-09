@@ -3,9 +3,9 @@ import { AnalyticsProvider } from '@/shared/analytics';
 import { FirebaseAppProvider } from '@/shared/firebase';
 import { MockTagProvider } from '@/shared/mocking';
 
-type MockAppProps = React.PropsWithChildren;
+type TestAppProps = React.PropsWithChildren;
 
-export const MockApp = ({ children }: MockAppProps) => (
+export const TestApp = ({ children }: TestAppProps) => (
   <MockTagProvider>
     <FirebaseAppProvider config={{}}>
       <AnalyticsProvider>{children}</AnalyticsProvider>

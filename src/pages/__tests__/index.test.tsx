@@ -2,6 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import HomePage, { HomePageProps } from '../index.page';
+import { TestApp } from '@/test/unit/utils/test-app';
 
 describe('<HomePage />', () => {
   let props: HomePageProps;
@@ -37,7 +38,7 @@ describe('<HomePage />', () => {
   });
 
   it('should render feed for all recent blog posts', () => {
-    render(<HomePage {...props} />);
+    render(<HomePage {...props} />, { wrapper: TestApp });
 
     const posts = screen.getAllByTestId('BlogPostPreview');
 

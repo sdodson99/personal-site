@@ -16,6 +16,7 @@ export type HomePageProps = {
 const HomePage: NextPage<HomePageProps> = ({ feed }) => {
   const posts = feed.posts.map((p) => ({
     ...p,
+    id: p.slug,
     publishDate: DateTime.fromFormat(p.publishDate, 'yyyy-LL-dd').toJSDate(),
     href: `/blog/${p.slug}`,
   }));

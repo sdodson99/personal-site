@@ -8,7 +8,7 @@ import { FirebaseAnalyticsProvider } from '../../firebase/use-firebase-analytics
 const mockUseRouter = useRouter as jest.Mock;
 const mockLogFirebaseAnalyticsEvent = logFirebaseAnalyticsEvent as jest.Mock;
 
-const MockApp = ({ children }: React.PropsWithChildren) => (
+const TestApp = ({ children }: React.PropsWithChildren) => (
   <FirebaseAppProvider config={{}}>
     <FirebaseAnalyticsProvider>{children}</FirebaseAnalyticsProvider>
   </FirebaseAppProvider>
@@ -37,7 +37,7 @@ describe('LogPageViewEventBoundary', () => {
 
   it('should log page view event with page parameters on page change', () => {
     render(<LogPageViewEventBoundary />, {
-      wrapper: MockApp,
+      wrapper: TestApp,
     });
 
     // Simulate page change on handler w/ analytics loaded.
@@ -55,7 +55,7 @@ describe('LogPageViewEventBoundary', () => {
 
   it('should cleanup page view event logging when un-mounted', () => {
     const { unmount } = render(<LogPageViewEventBoundary />, {
-      wrapper: MockApp,
+      wrapper: TestApp,
     });
 
     unmount();

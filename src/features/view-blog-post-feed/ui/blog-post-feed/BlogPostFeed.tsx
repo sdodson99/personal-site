@@ -8,9 +8,10 @@ export type BlogPostFeedProps = {
 
 export const BlogPostFeed = ({ posts = [] }: BlogPostFeedProps) => {
   const postPreviews = posts.map(
-    ({ title, description, publishDate, href }) => (
-      <div key={title} className={styles.postItem}>
+    ({ id, title, description, publishDate, href }) => (
+      <div key={id} className={styles.postItem}>
         <BlogPostPreview
+          id={id}
           title={title}
           description={description}
           publishDate={publishDate}
