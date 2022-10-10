@@ -7,7 +7,7 @@ const NotFoundPage = () => (
       <h1>Uh-oh! This page does not exist.</h1>
       <div className="mt-5">
         <Link href="/">
-          <a>Back to home page</a>
+          <a className="link">Back to home page</a>
         </Link>
       </div>
     </div>
