@@ -22,15 +22,9 @@ export const BlogPostPreview = ({
   const { logEvent } = useLogEvent();
 
   const onClickRead = () => {
-    logEvent('select_item', {
-      item_list_id: 'blog_post_feed',
-      item_list_name: 'Blog Post Feed',
-      items: [
-        {
-          item_id: id,
-          item_name: title,
-        },
-      ],
+    logEvent('select_content', {
+      item_id: id,
+      content_type: 'blog_post_feed_preview',
     });
   };
 

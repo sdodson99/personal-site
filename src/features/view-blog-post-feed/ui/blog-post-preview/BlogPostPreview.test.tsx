@@ -56,15 +56,13 @@ describe('<BlogPostPreview />', () => {
     const blogPost = screen.getByTestId('BlogPostPreview');
     fireEvent.click(blogPost);
 
-    expect(logEvent).toBeCalledWith('mock-firebase-analytics', 'select_item', {
-      item_list_id: 'blog_post_feed',
-      item_list_name: 'Blog Post Feed',
-      items: [
-        {
-          item_id: props.id,
-          item_name: props.title,
-        },
-      ],
-    });
+    expect(logEvent).toBeCalledWith(
+      'mock-firebase-analytics',
+      'select_content',
+      {
+        item_id: props.id,
+        content_type: 'blog_post_feed_preview',
+      }
+    );
   });
 });
