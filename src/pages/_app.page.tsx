@@ -1,9 +1,9 @@
 import '@/shared/styles/globals.css';
 import type { AppProps } from 'next/app';
-import Head from 'next/head';
 import { FirebaseAppProvider } from '@/shared/firebase';
 import { MockTagProvider } from '@/shared/mocking';
 import { AnalyticsProvider } from '@/shared/analytics';
+import { NextSeo } from 'next-seo';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyAJvMQW4ljm5DCnrd9ilkIgJb77IZvxzXI',
@@ -18,14 +18,17 @@ const firebaseConfig = {
 const App = ({ Component, pageProps }: AppProps) => {
   return (
     <>
-      <Head>
-        <title>Sean Dodson</title>
-        <meta
-          name="description"
-          content="Sean Dodson's personal site for blogging and career related content."
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <NextSeo
+        titleTemplate="%s - Sean Dodson"
+        defaultTitle="Sean Dodson"
+        description="Sean Dodson's personal site for blogging and career related content."
+        additionalLinkTags={[
+          {
+            rel: 'icon',
+            href: '/favicon.ico',
+          },
+        ]}
+      />
       <MockTagProvider>
         <FirebaseAppProvider config={firebaseConfig}>
           <AnalyticsProvider>

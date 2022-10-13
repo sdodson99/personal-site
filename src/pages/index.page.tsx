@@ -1,5 +1,5 @@
 import { GetStaticProps, NextPage } from 'next';
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import { DateTime } from 'luxon';
 import { Layout } from '@/widgets/layout';
 import {
@@ -23,10 +23,7 @@ const HomePage: NextPage<HomePageProps> = ({ feed }) => {
 
   return (
     <div data-testid="HomePage">
-      <Head>
-        <title>Blog - Sean Dodson</title>
-      </Head>
-
+      <NextSeo title="Blog" />
       <Layout>
         <div className="container container-sm">
           <BlogPostFeed posts={posts} />

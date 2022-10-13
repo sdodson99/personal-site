@@ -1,12 +1,10 @@
 import Link from 'next/link';
 import { Layout } from '@/widgets/layout';
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 
 const NotFoundPage = () => (
   <div data-testid="NotFoundPage">
-    <Head>
-      <title>Oops! - Sean Dodson</title>
-    </Head>
+    <NextSeo title="Oops!" />
     <Layout>
       <div className="container text-center">
         <h1>Oops! This page does not exist.</h1>

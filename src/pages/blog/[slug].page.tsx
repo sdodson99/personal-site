@@ -1,5 +1,5 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next';
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import { Layout } from '@/widgets/layout';
 import { BlogPost } from '@/features/view-blog-post';
 import { getBlogPostSlugs } from '@/features/view-blog-post/model';
@@ -25,10 +25,7 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({
 
   return (
     <div data-testid="BlogPostPage">
-      <Head>
-        <title>{`${title} - Sean Dodson`}</title>
-      </Head>
-
+      <NextSeo title={title} />
       <Layout>
         <div className="container">
           <BlogPost
