@@ -9,12 +9,16 @@ import { createBlogPostsDirectory } from '@/entities/blog-posts-directory';
 
 type BlogPostPageProps = {
   title: string;
+  description: string;
+  slug: string;
   publishDate: string;
   content: string;
 };
 
 const BlogPostPage: NextPage<BlogPostPageProps> = ({
   title,
+  description,
+  slug,
   publishDate,
   content,
 }) => {
@@ -25,7 +29,18 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({
 
   return (
     <div data-testid="BlogPostPage">
-      <NextSeo title={title} />
+      <NextSeo
+        title={title}
+        description={description}
+        openGraph={{
+          url: `https://seandodson.com/blog/${slug}`,
+          type: 'article',
+          article: {
+            publishedTime: formattedPublishDate.toISOString(),
+            section: 'Technology',
+          },
+        }}
+      />
       <Layout>
         <div className="container">
           <BlogPost

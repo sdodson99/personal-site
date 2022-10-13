@@ -28,6 +28,18 @@ const App = ({ Component, pageProps }: AppProps) => {
             href: '/favicon.ico',
           },
         ]}
+        openGraph={{
+          type: 'website',
+          images: [
+            {
+              url: 'https://seandodson.com/logo.png',
+              width: 300,
+              height: 300,
+              alt: 'Sean Dodson Logo',
+              type: 'image/png',
+            },
+          ],
+        }}
       />
       <MockTagProvider>
         <FirebaseAppProvider config={firebaseConfig}>

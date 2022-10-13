@@ -4,7 +4,7 @@ import { NextSeo } from 'next-seo';
 
 const NotFoundPage = () => (
   <div data-testid="NotFoundPage">
-    <NextSeo title="Oops!" />
+    <NextSeo title="Oops!" description="This page does not exist." />
     <Layout>
       <div className="container text-center">
         <h1>Oops! This page does not exist.</h1>

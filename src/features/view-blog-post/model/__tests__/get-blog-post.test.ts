@@ -14,13 +14,15 @@ describe('getBlogPost', () => {
     when(mockReadFileSync)
       .calledWith(expect.stringContaining('/content/post-1.md'))
       .mockReturnValue(
-        "---\ntitle: Post 1\npublishDate: '2022-09-01'\n---Hello world!"
+        "---\ntitle: Post 1\ndescription: This is my first post!\npublishDate: '2022-09-01'\n---Hello world!"
       );
 
     const post = await getBlogPost('/content', 'post-1');
 
     expect(post).toEqual({
       title: 'Post 1',
+      description: 'This is my first post!',
+      slug: 'post-1',
       publishDate: '2022-09-01',
       content: 'Hello world!',
     });

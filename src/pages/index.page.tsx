@@ -23,7 +23,13 @@ const HomePage: NextPage<HomePageProps> = ({ feed }) => {
 
   return (
     <div data-testid="HomePage">
-      <NextSeo title="Blog" />
+      <NextSeo
+        title="Blog"
+        description="Latest Sean Dodson blog posts"
+        openGraph={{
+          url: 'https://seandodson.com',
+        }}
+      />
       <Layout>
         <div className="container container-sm">
           <BlogPostFeed posts={posts} />

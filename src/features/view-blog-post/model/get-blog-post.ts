@@ -10,12 +10,14 @@ export const getBlogPost = async (
 
   const postFileContent = fs.readFileSync(postFilePath);
   const {
-    data: { title, publishDate },
+    data: { title, description, publishDate },
     content,
   } = matter(postFileContent);
 
   const post: BlogPost = {
     title,
+    description,
+    slug,
     publishDate,
     content,
   };
