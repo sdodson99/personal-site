@@ -32,7 +32,7 @@ const App = ({ Component, pageProps }: AppProps) => {
           type: 'website',
           images: [
             {
-              url: 'https://seandodson.com/logo.png',
+              url: 'https://seandodson.com/og-logo.png',
               width: 300,
               height: 300,
               alt: 'Sean Dodson Logo',
