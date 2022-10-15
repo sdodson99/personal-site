@@ -6,8 +6,14 @@ test('view blog post', async ({ page, baseURL }) => {
   const firstBlogPostReadMoreButton = page.locator('text=Read more').first();
   await firstBlogPostReadMoreButton.click();
 
-  const blogPostLocator = page.locator('text=Post 3').first();
+  await page.waitForNavigation();
+
+  const blogPostLocator = page.locator('text=Post 3');
   await expect(blogPostLocator).toBeVisible();
+
+  await expect(page).toHaveScreenshot('blog-post.png', {
+    fullPage: true,
+  });
 
   const backToFeedButton = page.locator('text=Back to recent posts');
   await backToFeedButton.click();

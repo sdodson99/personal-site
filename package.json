@@ -18,6 +18,7 @@
     "test:coverage": "jest --coverage",
     "test:ci": "jest --ci --coverage",
     "e2e": "playwright test",
+    "e2e:update": "npm run e2e -- --update-snapshots",
     "generate": "npx generate-react-cli component",
     "export": "next export",
     "deploy": "firebase deploy --only hosting",

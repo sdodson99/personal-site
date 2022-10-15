@@ -8,4 +8,8 @@ test('view blog post feed', async ({ page, baseURL }) => {
 
   const postsLocator = page.locator('data-testid=BlogPostPreview');
   await expect(postsLocator).toHaveCount(3);
+
+  await expect(page).toHaveScreenshot('blog-post-feed.png', {
+    fullPage: true,
+  });
 });
