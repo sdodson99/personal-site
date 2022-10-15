@@ -8,6 +8,8 @@ module.exports = {
     '^@/entities(.*)$': '<rootDir>/src/entities/$1',
     '^@/shared(.*)$': '<rootDir>/src/shared/$1',
     '^@/test(.*)$': '<rootDir>/test/$1',
+    'react-markdown':
+      '<rootDir>/node_modules/react-markdown/react-markdown.min.js',
   },
   clearMocks: true,
   collectCoverageFrom: ['<rootDir>/src/**/*.[jt]s?(x)'],

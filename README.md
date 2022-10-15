@@ -26,7 +26,7 @@ Website: https://www.seandodson.com
 npm install
 ```
 
-2. Start the application.
+2. Start the application (optional: [define a content mock](./content/mock/README.md)).
 
 ```
 npm run dev
