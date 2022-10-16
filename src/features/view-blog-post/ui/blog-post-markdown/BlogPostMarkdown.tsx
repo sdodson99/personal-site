@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './BlogPostMarkdown.module.css';
 import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import javascript from 'react-syntax-highlighter/dist/cjs/languages/prism/javascript';
 import { okaidia as syntaxStyle } from 'react-syntax-highlighter/dist/cjs/styles/prism';
@@ -13,6 +14,7 @@ type BlogPostMarkdownProps = {
 
 export const BlogPostMarkdown = ({ children }: BlogPostMarkdownProps) => (
   <ReactMarkdown
+    rehypePlugins={[rehypeRaw]}
     components={{
       code({
         style: _style,

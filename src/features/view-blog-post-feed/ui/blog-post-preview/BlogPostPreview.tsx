@@ -42,12 +42,11 @@ export const BlogPostPreview = ({
           onClick={() => onClickRead?.()}
         >
           <h3 className={styles.title}>{title}</h3>
-          <time
-            className={styles.publishDate}
-            dateTime={publishDate.toISOString()}
-          >
-            {publishDateDisplay}
-          </time>
+          <div className={styles.publishDate}>
+            <time dateTime={publishDate.toISOString()}>
+              {publishDateDisplay}
+            </time>
+          </div>
           <p className={styles.body}>{description}</p>
           <div className={styles.readMore}>Read more</div>
         </a>

@@ -10,6 +10,7 @@ module.exports = {
     '^@/test(.*)$': '<rootDir>/test/$1',
     'react-markdown':
       '<rootDir>/node_modules/react-markdown/react-markdown.min.js',
+    'rehype-raw': '<rootDir>/test/unit/mocks/rehype-raw.js',
   },
   clearMocks: true,
   collectCoverageFrom: ['<rootDir>/src/**/*.[jt]s?(x)'],

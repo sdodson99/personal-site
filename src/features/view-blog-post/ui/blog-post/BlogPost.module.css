@@ -8,7 +8,17 @@
 }
 
 .publishDate {
-  margin-top: 0.25rem;
+  margin-top: 0.5rem;
   font-size: var(--font-small);
   color: var(--color-sub-text);
+  font-weight: 400;
+}
+
+.body {
+  margin-top: 2rem;
+}
+
+.body p,
+.body li {
+  line-height: 1.5rem;
 }

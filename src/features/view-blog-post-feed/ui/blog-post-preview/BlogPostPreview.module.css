@@ -2,7 +2,7 @@
   border: 1px solid rgb(231, 231, 231);
   background-color: white;
   border-radius: 1rem;
-  padding: 1rem;
+  padding: 1.5rem;
   display: block;
 }
 
@@ -16,9 +16,10 @@
 }
 
 .publishDate {
-  margin-top: 0.25rem;
+  margin-top: 0.5rem;
   font-size: var(--font-small);
   color: var(--color-sub-text);
+  font-weight: 400;
 }
 
 .body {

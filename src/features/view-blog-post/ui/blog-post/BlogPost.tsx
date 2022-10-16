@@ -29,13 +29,12 @@ export const BlogPost = ({
       </Link>
       <article className={styles.blogPost}>
         <h1 className={styles.title}>{title}</h1>
-        <time
-          className={styles.publishDate}
-          dateTime={publishDate.toISOString()}
-        >
-          {publishDateDisplay}
-        </time>
-        <BlogPostMarkdown>{content}</BlogPostMarkdown>
+        <div className={styles.publishDate}>
+          <time dateTime={publishDate.toISOString()}>{publishDateDisplay}</time>
+        </div>
+        <div className={styles.body}>
+          <BlogPostMarkdown>{content}</BlogPostMarkdown>
+        </div>
       </article>
     </div>
   );
