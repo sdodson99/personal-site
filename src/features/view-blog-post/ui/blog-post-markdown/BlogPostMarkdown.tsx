@@ -4,9 +4,11 @@ import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import javascript from 'react-syntax-highlighter/dist/cjs/languages/prism/javascript';
-import { okaidia as syntaxStyle } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import jsx from 'react-syntax-highlighter/dist/cjs/languages/prism/jsx';
+import { vscDarkPlus as syntaxStyle } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 SyntaxHighlighter.registerLanguage('javascript', javascript);
+SyntaxHighlighter.registerLanguage('jsx', jsx);
 
 type BlogPostMarkdownProps = {
   children: string;
@@ -48,6 +50,12 @@ export const BlogPostMarkdown = ({ children }: BlogPostMarkdownProps) => (
             {String(children).replace(/\n$/, '')}
           </SyntaxHighlighter>
         );
+      },
+      a(props) {
+        return <a className="link" {...props} />;
+      },
+      blockquote(props) {
+        return <blockquote className={styles.blockquote} {...props} />;
       },
     }}
   >
