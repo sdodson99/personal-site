@@ -7,6 +7,7 @@ import {
   FirebaseAnalyticsProvider,
   useFirebaseAnalyticsContext,
 } from '../use-firebase-analytics-context';
+import { MockTagProvider } from '@/shared/mocking';
 
 const mockInitializeApp = initializeApp as jest.Mock;
 const mockGetAnalytics = getAnalytics as jest.Mock;
@@ -16,9 +17,11 @@ describe('useFirebaseAnalyticsContext', () => {
 
   beforeEach(() => {
     wrapper = ({ children }) => (
-      <FirebaseAppProvider config={{}}>
-        <FirebaseAnalyticsProvider>{children}</FirebaseAnalyticsProvider>
-      </FirebaseAppProvider>
+      <MockTagProvider>
+        <FirebaseAppProvider config={{}}>
+          <FirebaseAnalyticsProvider>{children}</FirebaseAnalyticsProvider>
+        </FirebaseAppProvider>
+      </MockTagProvider>
     );
   });
 

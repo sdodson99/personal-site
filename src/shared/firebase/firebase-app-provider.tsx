@@ -9,9 +9,9 @@ export const FirebaseAppProvider = ({
   children,
   config,
 }: RealFirebaseAppProviderProps) => {
-  const { loading, mockTag } = useMockTagContext();
+  const { mockTag } = useMockTagContext();
 
-  if (loading || mockTag) {
+  if (mockTag) {
     return <MockFirebaseAppProvider>{children}</MockFirebaseAppProvider>;
   }
 

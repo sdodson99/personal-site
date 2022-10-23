@@ -30,7 +30,7 @@ describe('useMockTagContext', () => {
           wrapper: MockTagProvider,
         });
 
-        expect(result.current.mockTag).toBe(mockTag);
+        expect(result.current?.mockTag).toBe(mockTag);
       });
 
       it('should return lowercase mock tag', () => {
@@ -46,7 +46,7 @@ describe('useMockTagContext', () => {
           wrapper: MockTagProvider,
         });
 
-        expect(result.current.mockTag).toBe(mockTag);
+        expect(result.current?.mockTag).toBe(mockTag);
       });
 
       it('should return undefined mock tag when no mock available', () => {
@@ -59,12 +59,10 @@ describe('useMockTagContext', () => {
           wrapper: MockTagProvider,
         });
 
-        expect(result.current.mockTag).toBeUndefined();
+        expect(result.current?.mockTag).toBeUndefined();
       });
-    });
 
-    describe('loading', () => {
-      it('should return true when router not ready', () => {
+      it('should return null mock tag when loading', () => {
         mockUseRouter.mockReturnValue({
           isReady: false,
           query: {},
@@ -74,20 +72,7 @@ describe('useMockTagContext', () => {
           wrapper: MockTagProvider,
         });
 
-        expect(result.current.loading).toBeTruthy();
-      });
-
-      it('should return false when router ready', () => {
-        mockUseRouter.mockReturnValue({
-          isReady: true,
-          query: {},
-        });
-
-        const { result } = renderHook(() => useMockTagContext(), {
-          wrapper: MockTagProvider,
-        });
-
-        expect(result.current.loading).toBeFalsy();
+        expect(result.current?.mockTag).toBeNull();
       });
     });
   });
@@ -110,21 +95,7 @@ describe('useMockTagContext', () => {
           wrapper: MockTagProvider,
         });
 
-        expect(result.current.mockTag).toBeUndefined();
-      });
-    });
-
-    describe('loading', () => {
-      it('should return false even when router is not ready', () => {
-        mockUseRouter.mockReturnValue({
-          isReady: false,
-        });
-
-        const { result } = renderHook(() => useMockTagContext(), {
-          wrapper: MockTagProvider,
-        });
-
-        expect(result.current.loading).toBeFalsy();
+        expect(result.current?.mockTag).toBeUndefined();
       });
     });
   });

@@ -1,12 +1,8 @@
 import { useRouter } from 'next/router';
 import { isProduction } from '@/shared/configuration';
-import { MockTagContext } from './use-mock-tag-context';
+import constate from 'constate';
 
-type MockTagProviderProps = {
-  children: React.ReactNode;
-};
-
-export const MockTagProvider = ({ children }: MockTagProviderProps) => {
+const useMockTag = () => {
   const { query, isReady: isRouterReady } = useRouter();
 
   // Mocking not enabled in production environment.
@@ -23,9 +19,13 @@ export const MockTagProvider = ({ children }: MockTagProviderProps) => {
   const mockTag = getMockTag();
   const loading = mockingEnabled && !isRouterReady;
 
-  return (
-    <MockTagContext.Provider value={{ mockTag, loading }}>
-      {children}
-    </MockTagContext.Provider>
-  );
+  if (loading) {
+    return { mockTag: null };
+  }
+
+  return { mockTag };
 };
+
+const [MockTagProvider, useMockTagContext] = constate(useMockTag);
+
+export { MockTagProvider, useMockTagContext };
