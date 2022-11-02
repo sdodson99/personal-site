@@ -11,6 +11,7 @@ module.exports = {
     'react-markdown':
       '<rootDir>/node_modules/react-markdown/react-markdown.min.js',
     'rehype-raw': '<rootDir>/test/unit/mocks/rehype-raw.js',
+    '\\.svg$': '<rootDir>/test/unit/mocks/svgr.js',
   },
   clearMocks: true,
   collectCoverageFrom: ['<rootDir>/src/**/*.[jt]s?(x)'],

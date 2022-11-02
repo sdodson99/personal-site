@@ -1,6 +1,53 @@
 .footer {
-  padding: 1rem;
-  color: white;
   text-align: center;
-  background-color: var(--color-primary);
+}
+
+.mainContainer {
+  background-color: var(--color-light-gray);
+  padding: 2rem 0;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+.socials {
+  margin-top: 2.5rem;
+}
+
+.socialLinksContainer {
+  margin-top: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.socialLink {
+  margin: 0 0.25rem;
+}
+
+.socialIcon {
+  width: 2rem;
+  height: 2rem;
+  margin: 0 0.75rem;
+}
+
+.copyright {
+  padding: 0.5rem;
+  background-color: var(--color-dark-gray);
+  font-size: var(--font-small);
+  color: white;
+}
+
+@media only screen and (min-width: 600px) {
+  .main {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .socials {
+    margin-top: 0;
+  }
 }
