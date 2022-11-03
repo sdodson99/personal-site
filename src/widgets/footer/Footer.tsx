@@ -64,7 +64,7 @@ export const Footer = ({}: FooterProps) => {
         </div>
       </section>
       <section className={styles.copyright}>
-        Copyright © {year} Sean Dodson. All right reserved.
+        Copyright © {year} Sean Dodson. All rights reserved.
       </section>
     </footer>
   );
