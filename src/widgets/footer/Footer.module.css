@@ -16,6 +16,11 @@
   margin-top: 2.5rem;
 }
 
+.socialsHeader {
+  font-size: var(--font-small);
+  font-weight: bold;
+}
+
 .socialLinksContainer {
   margin-top: 0.75rem;
   display: flex;

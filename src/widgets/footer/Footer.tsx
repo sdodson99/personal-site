@@ -46,7 +46,7 @@ export const Footer = ({}: FooterProps) => {
             <Image src="/logo.svg" alt="Sean Dodson" width={75} height={75} />
           </div>
           <div className={styles.socials}>
-            <div>Follow My Socials</div>
+            <div className={styles.socialsHeader}>Follow My Socials</div>
             <div className={styles.socialLinksContainer}>
               {socials.map(({ name, href, description, Icon }) => (
                 <a
