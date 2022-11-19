@@ -7,7 +7,7 @@ describe('<Footer />', () => {
   it('should render logo', () => {
     render(<Footer />);
 
-    const logo = screen.getByAltText('Sean Dodson');
+    const logo = screen.getByTestId('FooterLogo');
 
     expect(logo).toBeInTheDocument();
   });

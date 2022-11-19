@@ -32,6 +32,7 @@ const HomePage: NextPage<HomePageProps> = ({ feed }) => {
       />
       <Layout>
         <div className="container container-sm">
+          <h1 className="sr-only">Sean Dodson Home Page</h1>
           <BlogPostFeed posts={posts} />
         </div>
       </Layout>

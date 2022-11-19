@@ -10,7 +10,13 @@ export const Header = ({}: HeaderProps) => (
     <nav>
       <Link href="/">
         <a>
-          <Image src="/logo.svg" alt="Sean Dodson" width={50} height={50} />
+          <Image
+            src="/logo.svg"
+            alt=""
+            width={50}
+            height={50}
+            data-testid="HeaderLogo"
+          />
         </a>
       </Link>
     </nav>

@@ -8,7 +8,7 @@ const NotFoundPage = () => (
     <Layout>
       <div className="container text-center">
         <h1>Oops! This page does not exist.</h1>
-        <div className="mt-5">
+        <div style={{ marginTop: '1rem' }}>
           <Link href="/">
             <a className="link">Back to home page</a>
           </Link>

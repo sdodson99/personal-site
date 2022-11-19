@@ -6,8 +6,8 @@
   --color-text: rgb(47, 47, 47);
   --color-sub-text: #4d4d4d;
 
-  --color-link: #409dc2;
-  --color-link-hover: #4072c2;
+  --color-link: rgb(26, 115, 232);
+  --color-link-hover: rgb(23, 92, 181);
 
   --color-light-gray: #eee;
   --color-dark-gray: #5c5c5c;
@@ -57,6 +57,12 @@ a {
   text-align: center;
 }
 
-.mt-5 {
-  margin-top: 1rem;
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }

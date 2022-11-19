@@ -43,7 +43,13 @@ export const Footer = ({}: FooterProps) => {
       <section className={styles.mainContainer}>
         <div className={`container ${styles.main}`}>
           <div>
-            <Image src="/logo.svg" alt="Sean Dodson" width={75} height={75} />
+            <Image
+              src="/logo.svg"
+              alt=""
+              width={75}
+              height={75}
+              data-testid="FooterLogo"
+            />
           </div>
           <div className={styles.socials}>
             <div className={styles.socialsHeader}>Follow My Socials</div>
