@@ -1,5 +1,5 @@
 ---
-title: 'How I use the React Context API to enhance development'
+title: 'How I use the React Context API to mock my backend'
 description: 'I used to spin up a bunch of backend services to develop my frontend. Now, I use the React Context API to develop my frontend in isolation!'
 publishDate: '2022-10-22'
 ---
