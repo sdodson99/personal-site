@@ -1,6 +1,6 @@
 ---
 title: 'How I use the React Context API to mock my backend'
-description: 'I used to spin up a bunch of backend services to develop my frontend. Now, I use the React Context API to develop my frontend in isolation!'
+description: 'I used to spin up a bunch of backend services and emulators to develop my frontend. Now, I use the React Context API to develop my frontend in isolation!'
 publishDate: '2022-10-22'
 ---
 
@@ -60,9 +60,9 @@ const CatFact = () => {
 };
 ```
 
-By directly using fetch, our React application is **tied to** interacting with **our backend**. We will **not be able** to run this React application in **isolation** from our backend.
+By directly using fetch, our React application is **dependent** interacting with **our backend**. We will **not be able** to run this React application in **isolation** from our backend.
 
-> We'll use the Fetch API in this example, but this approach **also works for other external interactions** (ex: a module that makes backend requests, such as the Firebase SDK).
+> We'll use the Fetch API in this example, but this approach **also works for other external interactions** (ex: a module that makes backend requests, such as the Firebase SDK). **If you really just need to mock fetch, consider using [Mock Service Worker](https://mswjs.io/)**. We'll discuss this more in a bit.
 
 ### Injecting Fetch via a React Context
 
@@ -239,6 +239,14 @@ Assuming our app renders on **https://seandodson.com/**, we can:
 - Use our backend by just hitting **https://seandodson.com/**
 
 Success! Now, we can switch between using our **backend** or using our **mock data** via a **simple query parameter**.
+
+## Why Not Use Mock Service Worker or Similar Tools?
+
+**[Mock Service Worker](https://mswjs.io/)** and similar tools are **fantastic for mocking fetch**. Consider using MSW if you just need to mock fetch! However, keep this approach in mind:
+
+- If you want to **mock a non-fetch dependency**
+- If you'd **prefer to not use a third-party mocking package** like MSW
+- For other **dependency injection** concerns in your React applications
 
 ## Conclusion
 
