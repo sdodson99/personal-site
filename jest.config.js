@@ -11,6 +11,7 @@ module.exports = {
     'react-markdown':
       '<rootDir>/node_modules/react-markdown/react-markdown.min.js',
     'rehype-raw': '<rootDir>/test/unit/mocks/rehype-raw.js',
+    'remark-gfm': '<rootDir>/test/unit/mocks/remark-gfm.js',
     '\\.svg$': '<rootDir>/test/unit/mocks/svgr.js',
   },
   clearMocks: true,
