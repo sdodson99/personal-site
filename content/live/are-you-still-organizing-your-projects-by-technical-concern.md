@@ -484,3 +484,10 @@ Overall, **consider applying VSA** to:
 - Old features of an existing application by slowly refactoring
 
 Let's **enhance development** by aiming for **cohesiveness**!
+
+> Want to learn more about VSA? Check out these resources!
+>
+> - Jimmy Bogard: [🚀 Vertical Slice Architecture (Jimmy Bogard)](https://youtu.be/T6nglsEDaqA)
+> - CodeOpinion: [Organize Code by Feature | Vertical Slices](https://youtu.be/PRns0rqPonA)
+> - Feature-Sliced Design: [Documentation](https://feature-sliced.design/)
+> - My YouTube Playlist: [.NET Vertical Slice Architecture Series](https://www.youtube.com/playlist?list=PLA8ZIAm2I03hFYKicAV9UBPeeJrDpT6r4)
