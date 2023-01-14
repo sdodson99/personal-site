@@ -1,7 +1,8 @@
-# build output
+# output
 dist/
 .output/
 .firebase/
+test-results/
 
 # dependencies
 node_modules/

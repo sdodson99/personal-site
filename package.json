@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "build:stage": "NODE_ENV=test astro build",
+    "build:stage": "BLOG_CONTENT_MOCK=e2e pnpm build",
     "lint:eslint": "eslint ./src --ext=.tsx,.ts,.astro",
     "lint:prettier": "prettier --check --plugin-search-dir=. ./src",
     "lint": "pnpm run lint:eslint && pnpm run lint:prettier",
@@ -17,7 +17,7 @@
     "e2e:update": "pnpm e2e --update-snapshots",
     "deploy": "firebase deploy --only hosting",
     "deploy:stage": "firebase hosting:channel:deploy --expires 7d",
-    "clean": "rm -rf .firebase out && echo All clean!"
+    "clean": "rm -rf .firebase dist && echo All clean!"
   },
   "dependencies": {
     "@astrojs/partytown": "^1.0.2",

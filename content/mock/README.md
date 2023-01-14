@@ -11,7 +11,5 @@ BLOG_CONTENT_MOCK=default pnpm dev
 Building for stage environment with mock:
 
 ```
-BLOG_CONTENT_MOCK=e2e pnpm build:stage
+BLOG_CONTENT_MOCK=e2e pnpm build
 ```
-
-_NOTE: Some environments set a default mock in the corresponding `.env` file. However, you can override the `.env` file mock via the command line._
