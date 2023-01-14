@@ -17,7 +17,21 @@ type PostFrontmatter = {
   publishDate: string;
 };
 
-const posts = await Astro.glob<PostFrontmatter>('../../content/live/**/*.md');
+const getPosts = async () => {
+  const mock = import.meta.env.BLOG_CONTENT_MOCK;
+
+  if (mock) {
+    const mockPosts = await Astro.glob<PostFrontmatter>(
+      '../../content/mock/**/*.md'
+    );
+
+    return mockPosts.filter((p) => p.file?.includes(mock));
+  }
+
+  return Astro.glob<PostFrontmatter>('../../content/live/**/*.md');
+};
+
+const posts = await getPosts();
 
 const postPreviews = posts.map<PostPreview>((p) => ({
   title: p.frontmatter.title,
@@ -45,7 +59,7 @@ const hasPostPreviews = postPreviews.length > 0;
           <div class="mt-8">
             {postPreviews.map(
               ({ title, slug, description, publishDate, href }) => (
-                <article class="mb-10">
+                <article class="mb-10" data-testid="BlogPostPreview">
                   <a href={href} class="post-preview" data-slug={slug}>
                     <h3 class="m-0 text-2xl font-bold">{title}</h3>
                     <div class="publish-date">

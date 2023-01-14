@@ -4,7 +4,7 @@ const config: PlaywrightTestConfig = {
   testDir: './test/e2e',
   retries: 1,
   use: {
-    baseURL: import.meta.env.BASE_URL || 'http://localhost:3000',
+    baseURL: process.env.BASE_URL || 'http://localhost:3000',
     headless: true,
   },
   expect: {

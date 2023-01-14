@@ -6,8 +6,6 @@ test('view blog post', async ({ page, baseURL }) => {
   const firstBlogPostReadMoreButton = page.locator('text=Read more').first();
   await firstBlogPostReadMoreButton.click();
 
-  await page.waitForNavigation();
-
   const blogPostLocator = page.locator('text=Post 3');
   await expect(blogPostLocator).toBeVisible();
 
