@@ -1,0 +1,122 @@
+---
+import { Layout } from '../widgets/layout';
+import { DateTime } from 'luxon';
+
+type PostPreview = {
+  title: string;
+  slug: string;
+  description: string;
+  publishDate: Date;
+  href: string;
+};
+
+type PostFrontmatter = {
+  title: string;
+  slug: string;
+  description: string;
+  publishDate: string;
+};
+
+const posts = await Astro.glob<PostFrontmatter>('../../content/live/**/*.md');
+
+const postPreviews = posts.map<PostPreview>((p) => ({
+  title: p.frontmatter.title,
+  slug: p.frontmatter.slug,
+  description: p.frontmatter.description,
+  publishDate: DateTime.fromFormat(
+    p.frontmatter.publishDate,
+    'yyyy-LL-dd'
+  ).toJSDate(),
+  href: `/blog/${p.frontmatter.slug}`,
+}));
+
+postPreviews.sort((a, b) => b.publishDate.getTime() - a.publishDate.getTime());
+
+const hasPostPreviews = postPreviews.length > 0;
+---
+
+<Layout title="Blog" description="Latest Sean Dodson blog posts">
+  <div class="container container-sm">
+    <h1 class="sr-only">Sean Dodson Home Page</h1>
+    <section>
+      <h2 class="heading">Latest Blog Posts</h2>
+      {
+        hasPostPreviews ? (
+          <div class="mt-8">
+            {postPreviews.map(
+              ({ title, slug, description, publishDate, href }) => (
+                <article class="mb-10">
+                  <a href={href} class="post-preview" data-slug={slug}>
+                    <h3 class="m-0 text-2xl font-bold">{title}</h3>
+                    <div class="publish-date">
+                      <time datetime={publishDate.toISOString()}>
+                        {DateTime.fromJSDate(publishDate)
+                          .toFormat('LLL dd, yyyy')
+                          .toUpperCase()}
+                      </time>
+                    </div>
+                    <p class="mt-8 mb-0">{description}</p>
+                    <div class="read-more">Read more</div>
+                  </a>
+                </article>
+              )
+            )}
+          </div>
+        ) : (
+          <div class="mt-4">
+            Aww, no posts have been published yet. Please check again later!
+          </div>
+        )
+      }
+    </section>
+  </div>
+</Layout>
+
+<script>
+  const postPreviewLinks = document.querySelectorAll('a.post-preview');
+
+  postPreviewLinks.forEach((p) => {
+    p.addEventListener('click', () => {
+      const slug = p.getAttribute('data-slug');
+
+      window.dataLayer?.push?.('select_content', {
+        item_id: slug,
+        content_type: 'blog_post_feed_preview',
+      });
+    });
+  });
+</script>
+
+<style>
+  .heading {
+    color: var(--color-primary);
+
+    @apply m-0 font-bold;
+  }
+
+  .post-preview {
+    @apply p-6 bg-white border border-gray-200 rounded-2xl block;
+  }
+
+  .post-preview:hover {
+    filter: drop-shadow(0px 0px 5px rgb(231, 231, 231));
+  }
+
+  .publish-date {
+    color: var(--color-sub-text);
+
+    @apply mt-2 text-xs;
+  }
+
+  .read-more {
+    color: var(--color-link);
+
+    @apply mt-8;
+  }
+
+  .post-preview:hover .read-more {
+    color: var(--color-link-hover);
+
+    @apply underline;
+  }
+</style>

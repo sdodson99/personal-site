@@ -1,0 +1,101 @@
+---
+import type { AstroComponentFactory } from 'astro/dist/runtime/server';
+import { Layout } from '../../widgets/layout';
+import { DateTime } from 'luxon';
+
+type Props = {
+  title: string;
+  description: string;
+  publishDate: Date;
+  Content: AstroComponentFactory;
+};
+
+type PostFrontmatter = {
+  title: string;
+  slug: string;
+  description: string;
+  publishDate: string;
+};
+
+export async function getStaticPaths() {
+  const posts = await Astro.glob<PostFrontmatter>(
+    '../../../content/live/**/*.md'
+  );
+
+  return posts.map((post) => ({
+    params: {
+      slug: post.frontmatter.slug,
+    },
+    props: {
+      title: post.frontmatter.title,
+      description: post.frontmatter.description,
+      publishDate: DateTime.fromFormat(
+        post.frontmatter.publishDate,
+        'yyyy-LL-dd'
+      ).toJSDate(),
+      Content: post.Content,
+    },
+  }));
+}
+
+const { title, description, publishDate, Content } = Astro.props;
+
+const publishDateDisplay = DateTime.fromJSDate(publishDate)
+  .toFormat('LLL dd, yyyy')
+  .toUpperCase();
+---
+
+<Layout
+  title={title}
+  description={description}
+  openGraph={{
+    type: 'article',
+    article: {
+      publishedTime: publishDate.toISOString(),
+      section: 'Technology',
+    },
+  }}
+>
+  <div class="container">
+    <a class="link" href="/">Back to recent posts</a>
+    <article class="mt-8">
+      <h1 class="text-4xl font-bold">{title}</h1>
+      <div class="publish-date">
+        <time datetime={publishDate.toISOString()}>{publishDateDisplay}</time>
+      </div>
+      <div class="my-8 post-content prose max-w-full">
+        <Content />
+      </div>
+    </article>
+  </div>
+</Layout>
+
+<style>
+  .publish-date {
+    color: var(--color-sub-text);
+
+    @apply mt-2 text-xs;
+  }
+
+  .post-content :global(.astro-code) {
+    @apply p-4 rounded-md text-sm;
+  }
+
+  .post-content :global(blockquote) {
+    @apply bg-gray-50 py-1;
+  }
+
+  .post-content :global(a) {
+    color: var(--color-link);
+    text-decoration: none;
+  }
+
+  .prose :global(:where(ul > li):not(:where([class~='not-prose'] *))::marker) {
+    @apply text-gray-700;
+  }
+
+  .post-content :global(a:hover) {
+    color: var(--color-link-hover);
+    text-decoration: underline;
+  }
+</style>

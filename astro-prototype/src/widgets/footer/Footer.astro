@@ -1,0 +1,68 @@
+---
+import { Icon } from 'astro-icon';
+
+const year = new Date().getFullYear();
+
+const socials = [
+  {
+    description: 'Subscribe to my YouTube channel',
+    href: 'https://www.youtube.com/c/SingletonSean',
+    icon: 'youtube',
+  },
+  {
+    description: 'Follow me on Twitter',
+    href: 'https://twitter.com/sdodson_',
+    icon: 'twitter',
+  },
+  {
+    description: 'Explore my GitHub contributions',
+    href: 'https://github.com/sdodson99',
+    icon: 'github',
+  },
+  {
+    description: 'Connect with me on LinkedIn',
+    href: 'https://www.linkedin.com/in/sean-dodson21/',
+    icon: 'linkedin',
+  },
+];
+---
+
+<footer class="text-center">
+  <section class="py-8 bg-gray-100">
+    <div
+      class="container flex flex-col sm:flex-row sm:justify-between sm:items-center"
+    >
+      <div class="flex justify-center">
+        <img src="/logo.svg" alt="" width={75} height={75} />
+      </div>
+      <div class="mt-10 sm:mt-0">
+        <div class="socials-header">Follow My Socials</div>
+        <div class="mt-3 flex items-center justify-center">
+          {
+            socials.map(({ href, description, icon }) => (
+              <a href={href} target="_blank" rel="noreferrer" class="mx-1">
+                <Icon
+                  class="w-8 h-8 mx-3"
+                  pack="mdi"
+                  name={icon}
+                  title={description}
+                />
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="p-4 bg-gray-600 text-white text-xs">
+    Copyright © {year} Sean Dodson. All rights reserved.
+  </section>
+</footer>
+
+<style>
+  .socials-header {
+    color: var(--color-primary);
+
+    @apply font-bold text-sm;
+  }
+</style>

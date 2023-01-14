@@ -1,0 +1,145 @@
+---
+import { SEO } from 'astro-seo';
+import { Header } from '../header';
+import { Footer } from '../footer';
+
+type Props = {
+  title: string;
+  description?: string;
+  openGraph?: {
+    type?: string;
+    article?: {
+      publishedTime?: string;
+      section?: string;
+    };
+  };
+};
+
+const {
+  title,
+  description = "Sean Dodson's personal site for blogging and career related content.",
+  openGraph,
+} = Astro.props;
+
+const formattedTitle = `${title} - Sean Dodson`;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <SEO
+      title={formattedTitle}
+      description={description}
+      charset="UTF-8"
+      openGraph={{
+        basic: {
+          title,
+          type: openGraph?.type ?? 'website',
+          image: 'https://seandodson.com/og-logo.png',
+        },
+        image: {
+          url: 'https://seandodson.com/og-logo.png',
+          width: 300,
+          height: 300,
+          alt: 'Sean Dodson Logo',
+          type: 'image/png',
+        },
+        ...(openGraph?.article && {
+          article: openGraph.article,
+        }),
+      }}
+      twitter={{
+        creator: '@sdodson_',
+      }}
+      extend={{
+        meta: [
+          {
+            name: 'viewport',
+            content: 'width=device-width, initial-scale=1.0',
+          },
+        ],
+        link: [
+          {
+            rel: 'icon',
+            href: '/favicon.ico',
+          },
+        ],
+      }}
+    />
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      type="text/partytown"
+      src="https://www.googletagmanager.com/gtag/js?id=G-6QL5D7KTPK"
+    ></script>
+
+    <style is:global>
+      * {
+        --color-primary: #475ba1;
+
+        --color-text: rgb(47, 47, 47);
+        --color-sub-text: #4d4d4d;
+
+        --color-link: rgb(26, 115, 232);
+        --color-link-hover: rgb(23, 92, 181);
+
+        --color-light-gray: #eee;
+        --color-dark-gray: #5c5c5c;
+      }
+
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+        color: var(--color-text);
+        font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+          Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .link {
+        color: var(--color-link);
+        text-decoration: none;
+      }
+
+      .link:hover {
+        color: var(--color-link-hover);
+        text-decoration: underline;
+      }
+
+      .container {
+        margin: auto;
+        padding: 1rem 2rem;
+        width: 100%;
+        max-width: 1000px;
+      }
+
+      .container.container-sm {
+        max-width: 600px;
+      }
+
+      .sr-only:not(:focus):not(:active) {
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        height: 1px;
+        overflow: hidden;
+        position: absolute;
+        white-space: nowrap;
+        width: 1px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="min-h-screen">
+      <Header />
+      <main class="flex flex-col">
+        <slot />
+      </main>
+    </div>
+    <Footer />
+  </body>
+</html>
