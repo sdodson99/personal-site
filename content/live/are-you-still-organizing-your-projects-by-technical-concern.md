@@ -303,12 +303,12 @@ So... remember how we decided that **feature modules shouldn't depend on other f
 
 Despite extracting the pages layer, **we're still experiencing this issue**! For example, all of our features will need to reference the current-user feature in order to get information about the logged in user.
 
+This time, we'll need a layer _below_ our features layer: **entities**!
+
 <img 
   src="/blog/are-you-still-organizing-your-projects-by-technical-concern/entities.png" 
   alt="Diagram of adding an entities layer to our vertical slice architecture." 
   style="display: flex; margin: 2rem auto; max-width: 100%;"/>
-
-This time, we'll need a layer _below_ our features layer: **entities**!
 
 The entities layer:
 
