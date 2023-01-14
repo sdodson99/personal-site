@@ -1,9 +1,9 @@
 ---
 import type { AstroComponentFactory } from 'astro/dist/runtime/server';
-import { Layout } from '../../widgets/layout';
+import { Layout } from '@/widgets/layout';
 import { DateTime } from 'luxon';
 
-type Props = {
+export type Props = {
   title: string;
   description: string;
   publishDate: Date;

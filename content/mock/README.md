@@ -5,13 +5,13 @@ To mock blog posts, set the `BLOG_CONTENT_MOCK` environment variable to a mock s
 Running locally with mock:
 
 ```
-BLOG_CONTENT_MOCK=default npm run dev
+BLOG_CONTENT_MOCK=default pnpm dev
 ```
 
 Building for stage environment with mock:
 
 ```
-BLOG_CONTENT_MOCK=e2e npm run build:stage
+BLOG_CONTENT_MOCK=e2e pnpm build:stage
 ```
 
 _NOTE: Some environments set a default mock in the corresponding `.env` file. However, you can override the `.env` file mock via the command line._

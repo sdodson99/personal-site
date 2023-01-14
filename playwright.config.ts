@@ -4,7 +4,7 @@ const config: PlaywrightTestConfig = {
   testDir: './test/e2e',
   retries: 1,
   use: {
-    baseURL: process.env.BASE_URL || 'http://localhost:3000',
+    baseURL: import.meta.env.BASE_URL || 'http://localhost:3000',
     headless: true,
   },
   expect: {
@@ -14,4 +14,4 @@ const config: PlaywrightTestConfig = {
   },
 };
 
-module.exports = config;
+export default config;

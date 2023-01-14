@@ -32,16 +32,10 @@ jobs:
         run: 'pnpm install'
 
       - name: 'Lint'
-        run: 'npm run lint'
-
-      - name: 'Test'
-        run: 'npm run test:ci'
+        run: 'pnpm lint'
 
       - name: 'Build'
-        run: 'npm run build:stage'
-
-      - name: 'Export'
-        run: 'npm run export'
+        run: 'pnpm build:stage'
 
       - name: 'Stage'
         id: 'stage'
@@ -52,7 +46,7 @@ jobs:
           channelId: ${{ github.ref_name }}
 
       - name: 'Setup Playwright'
-        run: 'npx playwright install'
+        run: 'pnpx playwright install'
 
       - name: 'E2E'
-        run: 'BASE_URL=${{ steps.stage.outputs.details_url }} npm run e2e'
+        run: 'BASE_URL=${{ steps.stage.outputs.details_url }} pnpm e2e'

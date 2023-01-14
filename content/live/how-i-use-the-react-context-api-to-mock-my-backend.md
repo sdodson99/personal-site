@@ -22,7 +22,7 @@ I needed a way to **develop my frontend React application in isolation** from my
 ## The Concept
 
 <img 
-    src="/blog/react-context-api-mocking/concept.png" 
+    src="/blog/how-i-use-the-react-context-api-to-mock-my-backend/concept.png" 
     alt="Diagram of supporting mocked mode via React Context API" 
     style="display: flex; margin: 2rem auto; max-width: 100%;"/>
 
@@ -68,7 +68,7 @@ By directly using fetch, our React application is **dependent** interacting with
 ### Injecting Fetch via a React Context
 
 <img 
-    src="/blog/react-context-api-mocking/real-fetch.png" 
+    src="/blog/how-i-use-the-react-context-api-to-mock-my-backend/real-fetch.png" 
     alt="Diagram of injecting the real fetch instance via a React Context" 
     style="display: flex; margin: 2rem auto; max-width: 100%;"/>
 
@@ -131,7 +131,7 @@ Good start! Our **fetch instance is now configurable** via our React Context. Th
 ### Injecting a Mocked Fetch
 
 <img 
-    src="/blog/react-context-api-mocking/mock-fetch.png" 
+    src="/blog/how-i-use-the-react-context-api-to-mock-my-backend/mock-fetch.png" 
     alt="Diagram of injecting the mock fetch instance via a React Context" 
     style="display: flex; margin: 2rem auto; max-width: 100%;"/>
 
@@ -192,7 +192,7 @@ We can't just **constantly hard-code** our app between using the **mock fetch** 
 There are probably a few different ways to do this, but the **easiest solution I've used is by setting a URL query parameter**.
 
 <img 
-    src="/blog/react-context-api-mocking/mock-query-param.png" 
+    src="/blog/how-i-use-the-react-context-api-to-mock-my-backend/mock-query-param.png" 
     alt="Diagram of determining the fetch instance to inject via a query param" 
     style="display: flex; margin: 2rem auto; max-width: 100%;"/>
 
