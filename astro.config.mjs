@@ -7,17 +7,7 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://seandodson.com',
-  integrations: [
-    tailwind(),
-    partytown({
-      config: {
-        forward: ['dataLayer.push'],
-      },
-    }),
-    prefetch(),
-    robotsTxt(),
-    sitemap(),
-  ],
+  integrations: [tailwind(), partytown(), prefetch(), robotsTxt(), sitemap()],
   markdown: {
     shikiConfig: {
       theme: 'slack-dark',

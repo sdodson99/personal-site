@@ -3,7 +3,7 @@
 declare global {
   interface Window {
     dataLayer: {
-      push: (event: string, data: Record<string, unknown>) => void;
+      push: (event: { event: string; [arg: string]: unknown }) => void;
     };
   }
 }

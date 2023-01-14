@@ -93,9 +93,9 @@ const hasPostPreviews = postPreviews.length > 0;
     p.addEventListener('click', () => {
       const slug = p.getAttribute('data-slug');
 
-      window.dataLayer?.push?.('select_content', {
-        item_id: slug,
-        content_type: 'blog_post_feed_preview',
+      window.dataLayer?.push({
+        event: 'blog_post_preview_click',
+        slug,
       });
     });
   });
