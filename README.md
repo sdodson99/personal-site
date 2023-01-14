@@ -12,24 +12,25 @@ Website: https://www.seandodson.com
 
 ## Tech Stack
 
-- Next.js
-- Typescript
-- Markdown Content
+- Astro
+- TypeScript
+- Tailwind CSS
+- Markdown
 - Firebase Hosting
 - Google Analytics
 
 ## How to Run Locally
 
-1. Install packages.
+1. Install packages via [pnpm](https://pnpm.io/).
 
 ```
-npm install
+pnpm install
 ```
 
 2. Start the application (optional: [define a content mock](./content/mock/README.md)).
 
 ```
-npm run dev
+pnpm dev
 ```
 
 ## Contributing

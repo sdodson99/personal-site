@@ -1,5 +1,6 @@
 ---
 title: 'Are you still organizing your projects by technical concern?'
+slug: 'are-you-still-organizing-your-projects-by-technical-concern'
 description: 'All my services would go in a messy "services" folder of unrelated behavior. All my React components would go in a massive "components" folder. I switched to vertical slice architecture and I''m never looking back!'
 publishDate: '2023-01-12'
 ---
@@ -138,7 +139,7 @@ As we've discovered with John's experience, **organizing by technical concern ma
 We need a better solution. 🤔
 
 <img 
-  src="/blog/organizing-by-technical-concern/cohesion.png" 
+  src="/blog/are-you-still-organizing-your-projects-by-technical-concern/cohesion.png" 
   alt="A metaphor of organizing by technical concern versus vertical slice architecutre." 
   style="display: flex; margin: 2rem auto; max-width: 100%;"/>
 
@@ -239,7 +240,7 @@ Unfortunately, it is **difficult to understand how the feature modules relate to
 Given this unclear relationship, we've decided to propose a guideline: **feature modules should not reference other feature modules**. This guideline helps avoid **"feature spaghetti"** where all the features might end up referencing each other.
 
 <img 
-  src="/blog/organizing-by-technical-concern/features.png" 
+  src="/blog/are-you-still-organizing-your-projects-by-technical-concern/features.png" 
   alt="An example of feature spaghetti caused by dependencies between feature slices." 
   style="display: flex; margin: 2rem auto; max-width: 100%;"/>
 
@@ -248,7 +249,7 @@ Given this unclear relationship, we've decided to propose a guideline: **feature
 This is helpful, but how can our feed page reference the post component now? We'll need to add a layer _above_ our feature modules: **pages**!
 
 <img 
-  src="/blog/organizing-by-technical-concern/pages.png" 
+  src="/blog/are-you-still-organizing-your-projects-by-technical-concern/pages.png" 
   alt="Diagram of adding a pages layer to our vertical slice architecture." 
   style="display: flex; margin: 2rem auto; max-width: 100%;"/>
 
@@ -303,7 +304,7 @@ So... remember how we decided that **feature modules shouldn't depend on other f
 Despite extracting the pages layer, **we're still experiencing this issue**! For example, all of our features will need to reference the current-user feature in order to get information about the logged in user.
 
 <img 
-  src="/blog/organizing-by-technical-concern/entities.png" 
+  src="/blog/are-you-still-organizing-your-projects-by-technical-concern/entities.png" 
   alt="Diagram of adding an entities layer to our vertical slice architecture." 
   style="display: flex; margin: 2rem auto; max-width: 100%;"/>
 
@@ -364,7 +365,7 @@ What about concepts that aren't related to our domain and could be used in any a
 We can move these items to the most _bottom_ layer: **shared**!
 
 <img 
-  src="/blog/organizing-by-technical-concern/shared.png" 
+  src="/blog/are-you-still-organizing-your-projects-by-technical-concern/shared.png" 
   alt="Diagram of adding a shared layer to our vertical slice architecture." 
   style="display: flex; margin: 2rem auto; max-width: 100%;"/>
 

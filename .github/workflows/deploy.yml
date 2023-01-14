@@ -28,10 +28,7 @@ jobs:
         run: 'pnpm install'
 
       - name: 'Build'
-        run: 'npm run build'
-
-      - name: 'Export'
-        run: 'npm run export'
+        run: 'pnpm build'
 
       - name: 'Deploy'
         uses: FirebaseExtended/action-hosting-deploy@v0
