@@ -28,9 +28,9 @@ const socials = [
 ---
 
 <footer class="text-center">
-  <section class="py-8 bg-gray-100">
+  <section class="bg-gray-100 py-8">
     <div
-      class="container flex flex-col sm:flex-row sm:justify-between sm:items-center"
+      class="container flex flex-col sm:flex-row sm:items-center sm:justify-between"
     >
       <div class="flex justify-center">
         <img src="/logo.svg" alt="" width={75} height={75} />
@@ -42,7 +42,7 @@ const socials = [
             socials.map(({ href, description, icon }) => (
               <a href={href} target="_blank" rel="noreferrer" class="mx-1">
                 <Icon
-                  class="w-8 h-8 mx-3"
+                  class="mx-3 h-8 w-8"
                   pack="mdi"
                   name={icon}
                   title={description}
@@ -54,7 +54,7 @@ const socials = [
       </div>
     </div>
   </section>
-  <section class="p-4 bg-gray-600 text-white text-xs">
+  <section class="bg-gray-600 p-4 text-xs text-white">
     Copyright © {year} Sean Dodson. All rights reserved.
   </section>
 </footer>
@@ -63,6 +63,6 @@ const socials = [
   .socials-header {
     color: var(--color-primary);
 
-    @apply font-bold text-sm;
+    @apply text-sm font-bold;
   }
 </style>

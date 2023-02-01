@@ -75,7 +75,7 @@ const publishDateDisplay = DateTime.fromJSDate(publishDate)
       <div class="publish-date">
         <time datetime={publishDate.toISOString()}>{publishDateDisplay}</time>
       </div>
-      <div class="my-8 post-content prose max-w-full">
+      <div class="post-content prose my-8 max-w-full">
         <Content />
       </div>
     </article>
@@ -84,13 +84,11 @@ const publishDateDisplay = DateTime.fromJSDate(publishDate)
 
 <style>
   .publish-date {
-    color: var(--color-sub-text);
-
-    @apply mt-2 text-xs;
+    @apply mt-2 text-xs text-gray-700;
   }
 
   .post-content :global(.astro-code) {
-    @apply p-4 rounded-md text-sm;
+    @apply rounded-md p-4 text-sm;
   }
 
   .post-content :global(blockquote) {

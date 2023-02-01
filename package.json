@@ -10,9 +10,9 @@
     "lint:eslint": "eslint ./src --ext=.tsx,.ts,.astro",
     "lint:prettier": "prettier --check --plugin-search-dir=. ./src",
     "lint": "pnpm run lint:eslint && pnpm run lint:prettier",
-    "fix:eslint": "eslint --fix ./src --ext=.tsx,.ts,.astro",
-    "fix:prettier": "prettier --write --plugin-search-dir=. ./src",
-    "fix": "pnpm run fix:eslint && pnpm run fix:prettier",
+    "format:eslint": "eslint --fix ./src --ext=.tsx,.ts,.astro",
+    "format:prettier": "prettier --write --plugin-search-dir=. ./src",
+    "format": "pnpm run format:eslint && pnpm run format:prettier",
     "e2e": "playwright test",
     "e2e:update": "pnpm e2e --update-snapshots",
     "deploy": "firebase deploy --only hosting",
@@ -41,7 +41,9 @@
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-astro": "^0.21.1",
     "firebase-tools": "^11.20.0",
+    "prettier": "^2.8.3",
     "prettier-plugin-astro": "^0.7.2",
+    "prettier-plugin-tailwindcss": "^0.2.2",
     "typescript": "^4.9.4"
   }
 }
