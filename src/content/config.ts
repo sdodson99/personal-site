@@ -14,6 +14,5 @@ const blogCollection = defineCollection({
 });
 
 export const collections = {
-  live: blogCollection,
-  mock: blogCollection,
+  blog: blogCollection,
 };

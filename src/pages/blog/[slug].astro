@@ -4,21 +4,24 @@ import { Layout } from '@/widgets/layout';
 import { DateTime } from 'luxon';
 
 export type Props = {
-  post: CollectionEntry<'mock'> | CollectionEntry<'live'>;
+  post: CollectionEntry<'blog'>;
 };
 
 export async function getStaticPaths() {
-  const getPosts = async () => {
+  const getPostsDirectoryPrefix = () => {
     const mock = import.meta.env.BLOG_CONTENT_MOCK;
 
     if (mock) {
-      return getCollection('mock');
+      return `mock/${mock}/`;
     }
 
-    return getCollection('live');
+    return 'live/';
   };
 
-  const posts = await getPosts();
+  const postsDirectoryPrefix = getPostsDirectoryPrefix();
+  const posts = await getCollection('blog', ({ id }) =>
+    id.startsWith(postsDirectoryPrefix)
+  );
 
   return posts.map((post) => ({
     params: {
