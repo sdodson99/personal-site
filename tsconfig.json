@@ -3,7 +3,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/widgets/*": ["src/widgets/*"]
+      "@/widgets/*": ["src/widgets/*"],
+      "@/images/*": ["src/images/*"]
     }
   }
 }
