@@ -3,6 +3,7 @@ dist/
 .output/
 .firebase/
 test-results/
+.astro/
 
 # dependencies
 node_modules/

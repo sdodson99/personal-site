@@ -1,47 +1,26 @@
 ---
+import { getCollection } from 'astro:content';
 import { Layout } from '@/widgets/layout';
 import { DateTime } from 'luxon';
-
-type PostPreview = {
-  title: string;
-  slug: string;
-  description: string;
-  publishDate: Date;
-  href: string;
-};
-
-type PostFrontmatter = {
-  title: string;
-  slug: string;
-  description: string;
-  publishDate: string;
-};
 
 const getPosts = async () => {
   const mock = import.meta.env.BLOG_CONTENT_MOCK;
 
   if (mock) {
-    const mockPosts = await Astro.glob<PostFrontmatter>(
-      '../../content/mock/**/*.md'
-    );
-
-    return mockPosts.filter((p) => p.file?.includes(mock));
+    return getCollection('mock');
   }
 
-  return Astro.glob<PostFrontmatter>('../../content/live/**/*.md');
+  return getCollection('live');
 };
 
 const posts = await getPosts();
 
-const postPreviews = posts.map<PostPreview>((p) => ({
-  title: p.frontmatter.title,
-  slug: p.frontmatter.slug,
-  description: p.frontmatter.description,
-  publishDate: DateTime.fromFormat(
-    p.frontmatter.publishDate,
-    'yyyy-LL-dd'
-  ).toJSDate(),
-  href: `/blog/${p.frontmatter.slug}`,
+const postPreviews = posts.map((p) => ({
+  title: p.data.title,
+  description: p.data.description,
+  publishDate: p.data.publishDate,
+  slug: p.slug,
+  href: `/blog/${p.slug}`,
 }));
 
 postPreviews.sort((a, b) => b.publishDate.getTime() - a.publishDate.getTime());
@@ -53,16 +32,20 @@ const hasPostPreviews = postPreviews.length > 0;
   <div class="container-sm container">
     <h1 class="sr-only">Sean Dodson Home Page</h1>
     <section>
-      <h2 class="heading">Latest Blog Posts</h2>
+      <h2 class="heading m-0 font-bold">Latest Blog Posts</h2>
       {
         hasPostPreviews ? (
           <div class="mt-8">
             {postPreviews.map(
               ({ title, slug, description, publishDate, href }) => (
                 <article class="mb-10" data-testid="BlogPostPreview">
-                  <a href={href} class="post-preview" data-slug={slug}>
+                  <a
+                    href={href}
+                    class="post-preview block rounded-2xl border border-gray-200 bg-white p-6"
+                    data-slug={slug}
+                  >
                     <h3 class="m-0 text-2xl font-bold">{title}</h3>
-                    <div class="publish-date">
+                    <div class="mt-2 text-xs text-gray-700">
                       <time datetime={publishDate.toISOString()}>
                         {DateTime.fromJSDate(publishDate)
                           .toFormat('LLL dd, yyyy')
@@ -70,7 +53,9 @@ const hasPostPreviews = postPreviews.length > 0;
                       </time>
                     </div>
                     <p class="mt-8 mb-0">{description}</p>
-                    <div class="link read-more mt-8">Read more</div>
+                    <div class="link read-more mt-8 hover:underline">
+                      Read more
+                    </div>
                   </a>
                 </article>
               )
@@ -104,20 +89,10 @@ const hasPostPreviews = postPreviews.length > 0;
 <style>
   .heading {
     color: var(--color-primary);
-
-    @apply m-0 font-bold;
-  }
-
-  .post-preview {
-    @apply block rounded-2xl border border-gray-200 bg-white p-6;
   }
 
   .post-preview:hover {
     filter: drop-shadow(0px 0px 5px rgb(231, 231, 231));
-  }
-
-  .publish-date {
-    @apply mt-2 text-xs text-gray-700;
   }
 
   .post-preview:hover .read-more {

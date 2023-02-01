@@ -1,8 +1,8 @@
 ---
 title: 'Are you still organizing your projects by technical concern?'
-slug: 'are-you-still-organizing-your-projects-by-technical-concern'
 description: 'All my services would go in a messy "services" folder of unrelated behavior. All my React components would go in a massive "components" folder. I switched to vertical slice architecture and I''m never looking back!'
 publishDate: '2023-01-12'
+slug: 'are-you-still-organizing-your-projects-by-technical-concern'
 ---
 
 The day has arrived. We're starting a new software project! 🎉
