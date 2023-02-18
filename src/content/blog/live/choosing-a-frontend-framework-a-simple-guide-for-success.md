@@ -163,7 +163,7 @@ We have no product, therefore we have no customers. We have no customers, theref
 
 Let's focus on the requirements we have now and choose the framework that will help us quickly build the features we know we need.
 
-# Move Fast
+## Move Fast
 
 Overall, choosing the right frontend framework is indeed tricky. Just make sure you:
 
