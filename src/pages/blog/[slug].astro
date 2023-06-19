@@ -1,27 +1,15 @@
 ---
-import { CollectionEntry, getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 import { Layout } from '@/widgets/layout';
 import { DateTime } from 'luxon';
+import { getAllBlogPosts } from '@/entities/blog-post';
 
 export type Props = {
   post: CollectionEntry<'blog'>;
 };
 
 export async function getStaticPaths() {
-  const getPostsDirectoryPrefix = () => {
-    const mock = import.meta.env.BLOG_CONTENT_MOCK;
-
-    if (mock) {
-      return `mock/${mock}/`;
-    }
-
-    return 'live/';
-  };
-
-  const postsDirectoryPrefix = getPostsDirectoryPrefix();
-  const posts = await getCollection('blog', ({ id }) =>
-    id.startsWith(postsDirectoryPrefix)
-  );
+  const posts = await getAllBlogPosts();
 
   return posts.map((post) => ({
     params: {

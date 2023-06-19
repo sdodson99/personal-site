@@ -1,22 +1,9 @@
 ---
-import { getCollection } from 'astro:content';
+import { getAllBlogPosts } from '@/entities/blog-post';
 import { Layout } from '@/widgets/layout';
 import { DateTime } from 'luxon';
 
-const getPostsDirectoryPrefix = () => {
-  const mock = import.meta.env.BLOG_CONTENT_MOCK;
-
-  if (mock) {
-    return `mock/${mock}/`;
-  }
-
-  return 'live/';
-};
-
-const postsDirectoryPrefix = getPostsDirectoryPrefix();
-const posts = await getCollection('blog', ({ id }) =>
-  id.startsWith(postsDirectoryPrefix)
-);
+const posts = await getAllBlogPosts();
 
 const postPreviews = posts.map((p) => ({
   title: p.data.title,
