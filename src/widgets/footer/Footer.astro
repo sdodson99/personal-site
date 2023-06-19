@@ -1,7 +1,5 @@
 ---
-import { Image } from '@astrojs/image/components';
 import { Icon } from 'astro-icon';
-import logo from '@/images/logo.png';
 
 const year = new Date().getFullYear();
 
@@ -35,7 +33,7 @@ const socials = [
       class="container flex flex-col sm:flex-row sm:items-center sm:justify-between"
     >
       <div class="flex justify-center">
-        <Image src={logo} alt="" width={75} height={75} />
+        <img src="/logo.png" alt="" width={75} height={75} />
       </div>
       <div class="mt-10 sm:mt-0">
         <div class="socials-header">Follow My Socials</div>
