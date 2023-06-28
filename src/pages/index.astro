@@ -10,7 +10,7 @@ const postPreviews = posts.map((p) => ({
   description: p.data.description,
   publishDate: p.data.publishDate,
   slug: p.slug,
-  href: `/blog/${p.slug}`,
+  href: `/blog/${p.slug}/`,
 }));
 
 postPreviews.sort((a, b) => b.publishDate.getTime() - a.publishDate.getTime());
