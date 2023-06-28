@@ -5,7 +5,7 @@ import { Footer } from '@/widgets/footer';
 
 export type Props = {
   title: string;
-  description?: string;
+  description: string;
   openGraph?: {
     type?: string;
     article?: {
@@ -17,7 +17,7 @@ export type Props = {
 
 const {
   title,
-  description = "Sean Dodson's personal site for blogging and career related content.",
+  description,
   openGraph,
 } = Astro.props;
 
