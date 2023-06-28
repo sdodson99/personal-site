@@ -1,6 +1,9 @@
 ---
 title: 'How I use the React Context API to mock my backend'
 description: 'I used to spin up a bunch of backend services and emulators to develop my frontend. Now, I use the React Context API to develop my frontend in isolation!'
+tags:
+- web-development
+- react
 publishDate: '2022-10-22'
 slug: 'how-i-use-the-react-context-api-to-mock-my-backend'
 ---

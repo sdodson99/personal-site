@@ -1,5 +1,6 @@
 ---
 import { getAllBlogPosts } from '@/entities/blog-post';
+import { TagPill } from '@/entities/tag';
 import { Layout } from '@/widgets/layout';
 import { DateTime } from 'luxon';
 
@@ -8,6 +9,7 @@ const posts = await getAllBlogPosts();
 const postPreviews = posts.map((p) => ({
   title: p.data.title,
   description: p.data.description,
+  tags: p.data.tags,
   publishDate: p.data.publishDate,
   slug: p.slug,
   href: `/blog/${p.slug}/`,
@@ -18,7 +20,10 @@ postPreviews.sort((a, b) => b.publishDate.getTime() - a.publishDate.getTime());
 const hasPostPreviews = postPreviews.length > 0;
 ---
 
-<Layout title="Blog" description="Sean Dodson's latest blog posts covering software development, web technology, and productivity topics.">
+<Layout
+  title="Blog"
+  description="Sean Dodson's latest blog posts covering software development, web technology, and productivity topics."
+>
   <div class="container-sm container">
     <h1 class="sr-only">Sean Dodson Home Page</h1>
     <section>
@@ -27,7 +32,7 @@ const hasPostPreviews = postPreviews.length > 0;
         hasPostPreviews ? (
           <div class="mt-8">
             {postPreviews.map(
-              ({ title, slug, description, publishDate, href }) => (
+              ({ title, slug, description, tags, publishDate, href }) => (
                 <article class="mb-10" data-testid="BlogPostPreview">
                   <a
                     href={href}
@@ -42,6 +47,13 @@ const hasPostPreviews = postPreviews.length > 0;
                           .toUpperCase()}
                       </time>
                     </div>
+                    <ul class="mt-2 flex flex-wrap">
+                      {tags.map((tag) => (
+                        <li class="mr-2 mb-1 whitespace-nowrap">
+                          <TagPill {...tag} />
+                        </li>
+                      ))}
+                    </ul>
                     <p class="mt-8 mb-0">{description}</p>
                     <div class="link read-more mt-8 hover:underline">
                       Read more
@@ -79,6 +91,11 @@ const hasPostPreviews = postPreviews.length > 0;
 <style>
   .heading {
     color: var(--color-primary);
+  }
+
+  .post-preview {
+    transition-property: filter;
+    transition-duration: 100ms;
   }
 
   .post-preview:hover {

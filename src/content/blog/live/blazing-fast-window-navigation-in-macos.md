@@ -1,6 +1,9 @@
 ---
 title: 'Blazing Fast Window Navigation on MacOS'
 description: 'Stop wasting time with Mission Control and weird triple swipes. With just a few configuration changes, you could be navigating exactly where you want with just a single keybind.'
+tags:
+- productivity
+- mac-os
 publishDate: '2023-06-27'
 slug: 'blazing-fast-window-navigation-on-macos'
 ---

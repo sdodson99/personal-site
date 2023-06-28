@@ -1,6 +1,8 @@
 ---
 title: 'Choosing a Frontend JavaScript Framework: A Simple Guide for Success'
 description: "Which frontend framework should you choose for your next project? Tough question. Let's make it simpler."
+tags:
+- web-development
 publishDate: '2023-02-17'
 slug: 'choosing-a-frontend-framework-a-simple-guide-for-success'
 ---

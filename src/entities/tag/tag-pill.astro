@@ -1,0 +1,17 @@
+---
+export type Props = {
+  name: string;
+  color: string;
+  backgroundColor: string;
+};
+
+const { name, color, backgroundColor } = Astro.props;
+---
+
+<span
+  class="text-xs rounded-xl px-2 py-1"
+  style={{
+    color,
+    backgroundColor,
+  }}>{name}</span
+>

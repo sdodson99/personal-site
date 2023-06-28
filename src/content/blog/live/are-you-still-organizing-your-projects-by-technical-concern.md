@@ -1,6 +1,9 @@
 ---
 title: 'Are you still organizing your projects by technical concern?'
 description: 'All my services would go in a messy "services" folder of unrelated behavior. All my React components would go in a massive "components" folder. I switched to vertical slice architecture and I''m never looking back!'
+tags:
+- general-software-development
+- architecture
 publishDate: '2023-01-12'
 slug: 'are-you-still-organizing-your-projects-by-technical-concern'
 ---
@@ -9,7 +12,7 @@ The day has arrived. We're starting a new software project! 🎉
 
 After hours of project configuration, we make our first move towards development:
 
-```bash
+```
 mkdir src
 ```
 
@@ -17,7 +20,7 @@ Nice start!
 
 Next, we create a few more folders related to ~~our domain~~ the technology we're using. **We've decided to organize our project by technical concern**:
 
-```bash
+```
 └── src
     ├── components
     ├── hooks
@@ -28,7 +31,7 @@ Hmm...
 
 After a hard week of work, we've completed our first feature:
 
-```bash
+```
 └── src
     ├── components
     │   ├── app
@@ -44,7 +47,7 @@ After a hard week of work, we've completed our first feature:
 
 A few months pass, and we've added quite a few features to our application:
 
-```bash
+```
 └── src
     ├── components
     │   ├── app
@@ -81,7 +84,7 @@ We've brought a new developer, John, onto our team!
 
 John is trying to understand our application's domain and what our application does. However, by observing our folder structure, John is **struggling to understand our application's purpose**. This is **due to our folders representing technical concerns, not domain concepts**:
 
-```bash
+```
 └── src
     ├── components
     ├── hooks
@@ -90,7 +93,7 @@ John is trying to understand our application's domain and what our application d
 
 A week passes, and John is now trying to understand how authentication works in our application. However, he is **having trouble understanding all the pieces that make up our application's authentication**. This is **due to how spread out authentication concepts are** in our application:
 
-```bash
+```
 └── src
     ├── components
     │   ├── ...
@@ -113,7 +116,7 @@ A week passes, and John is now trying to understand how authentication works in 
 
 Another week passes, and John is finally ready to fix a bug related to logging in. However, he is **having trouble finding all the pieces related to login that need to change**. Again, this is **due to how spread out login concepts are** in our application:
 
-```bash
+```
 └── src
     ├── components
     │   ├── ...
@@ -147,7 +150,7 @@ We need a better solution. 🤔
 
 Continuing with our example application, John finally fixes the bug related to logging in. As part of his pull request, he decides to re-organize the login behavior:
 
-```bash
+```
 └── src
     ├── features
     │   └── login
@@ -198,7 +201,7 @@ Our team has decided that we really like John's VSA approach applied to the logi
 
 Following up on the existing login feature folder, we'll **break down our technical concern folders into more feature folders that represent our domain**:
 
-```bash
+```
 └── src
     ├── features
     │   ├── view-post
@@ -261,7 +264,7 @@ The pages layer:
 
 Let's extract the pages from our feature modules:
 
-```bash
+```
 └── src
     ├── pages
     |   ├── app
@@ -322,7 +325,7 @@ There are a few entities that we need to extract:
 
 Let's extract entities from our feature modules:
 
-```bash
+```
 └── src
     ├── pages
     |   ├── app
@@ -376,7 +379,7 @@ The shared layer:
 
 Let's move our poor, lonely container component to the shared layer:
 
-```bash
+```
 └── src
     ├── pages
     |   ├── app
@@ -416,7 +419,7 @@ Now, we've completely removed all of the folders that represent technical concer
 
 Let's look at the final, **cohesive application based on VSA**!
 
-```bash
+```
 └── src
     ├── pages
     |   ├── app
@@ -452,7 +455,7 @@ Let's look at the final, **cohesive application based on VSA**!
 
 Actually, let's **collapse the folders a bit and analyze** our final solution:
 
-```bash
+```
 └── src
     ├── pages
     |   ├── app

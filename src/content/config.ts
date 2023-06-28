@@ -1,10 +1,21 @@
-import { z, defineCollection } from 'astro:content';
+import { z, defineCollection, reference } from 'astro:content';
 import { DateTime } from 'luxon';
 
+const tagCollection = defineCollection({
+  type: 'data',
+  schema: z.object({
+    name: z.string(),
+    color: z.string(),
+    backgroundColor: z.string(),
+  }),
+});
+
 const blogCollection = defineCollection({
+  type: 'content',
   schema: z.object({
     title: z.string(),
     description: z.string(),
+    tags: z.array(reference('tag')),
     publishDate: z
       .string()
       .transform((value) =>
@@ -15,4 +26,5 @@ const blogCollection = defineCollection({
 
 export const collections = {
   blog: blogCollection,
+  tag: tagCollection,
 };
