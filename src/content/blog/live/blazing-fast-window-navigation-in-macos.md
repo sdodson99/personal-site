@@ -122,7 +122,7 @@ that **Yabai works just fine for many use cases without disabling System Integri
 In terms of window management, I mostly use Yabai for snapping windows onto a desktop:
 
 <img 
-  src="/blog/blazing-fast-window-navigation-in-macos/yabai-start-service.gif" 
+  src="/blog/blazing-fast-window-navigation-in-macos/yabai-start-service.png" 
   alt="Demonstration of Yabai snapping windows into place." 
   style="display: flex; margin: 2rem auto; width: 100%; max-width: 1000px;"/>
 
